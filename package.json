@@ -1,0 +1,14 @@
+{
+  "name": "undangan-rizal-putri",
+  "version": "1.0.0",
+  "description": "Aplikasi Undangan Pernikahan Rizal & Putri (Frontend React + Backend Express SQLite)",
+  "private": true,
+  "scripts": {
+    "dev:backend": "cd backend && npm run dev",
+    "dev:frontend": "cd frontend && npm run dev",
+    "start:backend": "cd backend && npm start",
+    "build:frontend": "cd frontend && npm run build",
+    "lint:frontend": "cd frontend && npm run lint"
+  }
+}
+
