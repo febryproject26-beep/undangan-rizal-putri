@@ -43,7 +43,7 @@ export default function Sampul({
   return (
     <main
       onClick={handleClickCover}
-      className="w-full min-h-screen bg-surface flex flex-col justify-center items-center relative overflow-y-auto py-8 px-4 sm:px-6 select-none cursor-pointer"
+      className="w-full min-h-screen bg-surface flex flex-col justify-center items-center relative overflow-y-auto py-6 sm:py-10 px-3 sm:px-6 select-none cursor-pointer"
       title="Klik buku sampul untuk masuk ke Beranda"
       role="button"
       tabIndex={0}
@@ -122,104 +122,104 @@ export default function Sampul({
 
       {/* Center Invitation Card (Buku Sampul) */}
       <div
-        className={`relative z-10 w-full max-w-xl mx-auto bg-surface-container-lowest/95 backdrop-blur-md rounded-2xl shadow-2xl px-6 py-10 sm:px-14 sm:py-14 text-center border border-primary-container/30 transition-all duration-500 ease-out transform ${isOpening
+        className={`relative z-10 w-full max-w-lg md:max-w-xl mx-auto bg-surface-container-lowest/95 backdrop-blur-md rounded-2xl shadow-2xl px-4 py-6 sm:px-10 sm:py-10 md:px-14 md:py-12 text-center border border-primary-container/30 transition-all duration-500 ease-out transform ${isOpening
           ? 'scale-105 opacity-80'
           : 'hover:scale-[1.015] hover:shadow-[0_20px_50px_rgba(119,90,25,0.18)]'
           }`}
         id="invitation-card"
       >
         {/* Top Header Badge */}
-        <div className="flex items-center justify-center space-x-3 mb-5">
-          <span className="w-10 h-px bg-primary-container/40"></span>
+        <div className="flex items-center justify-center space-x-2 sm:space-x-3 mb-3.5 sm:mb-5">
+          <span className="w-8 sm:w-10 h-px bg-primary-container/40"></span>
           <span className="material-symbols-outlined text-primary-container text-xs">
             favorite
           </span>
-          <span className="font-label-sm text-label-sm uppercase tracking-widest text-primary font-semibold">
+          <span className="font-label-sm text-[10px] sm:text-label-sm uppercase tracking-widest text-primary font-semibold">
             The Holy Matrimony
           </span>
           <span className="material-symbols-outlined text-primary-container text-xs">
             favorite
           </span>
-          <span className="w-10 h-px bg-primary-container/40"></span>
+          <span className="w-8 sm:w-10 h-px bg-primary-container/40"></span>
         </div>
 
         {/* Monogram Crest Avatar */}
-        <div className="relative mx-auto w-24 h-24 sm:w-28 sm:h-28 mb-6 flex items-center justify-center">
+        <div className="relative mx-auto w-20 h-20 sm:w-28 sm:h-28 mb-3.5 sm:mb-6 flex items-center justify-center">
           <div className="absolute inset-0 rounded-full bg-primary-container/15 animate-ping opacity-30"></div>
           <div className="relative w-full h-full rounded-full bg-surface-container-low p-2 shadow-inner flex items-center justify-center border border-primary-container/30 group-hover:scale-105 transition-transform">
-            <MonogramSvg initials="R & P" subtitle="WEDDING" size={88} />
+            <MonogramSvg initials="R & P" subtitle="WEDDING" size={80} className="w-full h-full" />
           </div>
         </div>
 
         {/* Couple Title & Date */}
-        <div className="space-y-1 mb-6">
-          <p className="font-body-md text-body-md text-on-surface-variant italic">
+        <div className="space-y-1 mb-4 sm:mb-6">
+          <p className="font-body-md text-xs sm:text-body-md text-on-surface-variant italic">
             Bersama memohon rahmat dan ridho-Nya
           </p>
-          <h1 className="font-display-lg text-display-lg-mobile sm:text-display-lg text-on-surface leading-tight tracking-tight">
+          <h1 className="font-display-lg text-4xl sm:text-5xl md:text-display-lg text-on-surface leading-tight tracking-tight">
             {coupleTitle}
           </h1>
-          <div className="pt-2 flex items-center justify-center gap-3">
-            <span className="h-px w-8 bg-outline-variant"></span>
-            <span className="font-label-md text-label-md text-primary tracking-widest uppercase font-medium">
+          <div className="pt-1.5 sm:pt-2 flex items-center justify-center gap-2 sm:gap-3">
+            <span className="h-px w-6 sm:w-8 bg-outline-variant"></span>
+            <span className="font-label-md text-[11px] sm:text-label-md text-primary tracking-wider sm:tracking-widest uppercase font-medium">
               {weddingDate}
             </span>
-            <span className="h-px w-8 bg-outline-variant"></span>
+            <span className="h-px w-6 sm:w-8 bg-outline-variant"></span>
           </div>
         </div>
 
         {/* Guest Name Box */}
-        <div className="bg-surface-container-low/90 rounded-xl p-5 sm:p-6 mb-6 shadow-sm max-w-md mx-auto relative overflow-hidden border border-outline-variant/30">
+        <div className="bg-surface-container-low/90 rounded-xl p-3.5 sm:p-5 md:p-6 mb-4 sm:mb-6 shadow-sm max-w-md mx-auto relative overflow-hidden border border-outline-variant/30">
           <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-primary-container to-transparent opacity-80"></div>
-          <p className="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest mb-1.5">
+          <p className="font-label-sm text-[9px] sm:text-label-sm text-on-surface-variant uppercase tracking-wider sm:tracking-widest mb-1 sm:mb-1.5">
             Kepada Yth. Tamu Undangan
           </p>
           <h2
-            className="font-headline-sm text-headline-sm text-on-surface mb-2 font-medium"
+            className="font-headline-sm text-base sm:text-headline-sm text-on-surface mb-1 sm:mb-2 font-semibold"
             id="guest-name"
           >
             {guestName}
           </h2>
-          <div className="flex items-center justify-center gap-1.5 text-secondary">
-            <span className="material-symbols-outlined text-sm">place</span>
-            <p className="font-body-md text-body-md">{venue}</p>
+          <div className="flex items-center justify-center gap-1 sm:gap-1.5 text-secondary">
+            <span className="material-symbols-outlined text-[13px] sm:text-sm">place</span>
+            <p className="font-body-md text-xs sm:text-body-md">{venue}</p>
           </div>
-          <p className="font-label-sm text-label-sm text-on-surface-variant/80 mt-3 pt-3 border-t border-outline-variant/30 italic">
+          <p className="font-label-sm text-[8.5px] sm:text-label-sm text-on-surface-variant/80 mt-2 pt-2 sm:mt-3 sm:pt-3 border-t border-outline-variant/30 italic">
             *Mohon maaf apabila terdapat kesalahan dalam penulisan nama atau gelar
           </p>
         </div>
 
         {/* Subtle Tap / Click Prompt */}
-        <div className="flex flex-col items-center justify-center gap-2 pt-2">
-          <div className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-primary-container/20 text-primary border border-primary-container/40 animate-pulse transition-all">
-            <span className="material-symbols-outlined text-[18px]">
+        <div className="flex flex-col items-center justify-center gap-2 pt-1">
+          <div className="inline-flex items-center gap-2 px-5 sm:px-6 py-2 sm:py-2.5 rounded-full bg-primary-container/20 text-primary border border-primary-container/40 animate-pulse transition-all">
+            <span className="material-symbols-outlined text-[16px] sm:text-[18px]">
               touch_app
             </span>
-            <span className="font-label-md text-label-md uppercase tracking-wider font-semibold">
+            <span className="font-label-md text-xs sm:text-label-md uppercase tracking-wider font-semibold">
               Klik Sampul untuk Masuk
             </span>
-            <span className="material-symbols-outlined text-[16px]">
+            <span className="material-symbols-outlined text-[14px] sm:text-[16px]">
               arrow_forward
             </span>
           </div>
         </div>
 
         {/* Footer Hash & Audio Info */}
-        <div className="mt-8 flex items-center justify-center gap-6 text-on-surface-variant opacity-75">
-          <div className="flex items-center gap-1.5">
-            <span className="material-symbols-outlined text-xs text-primary-container">
+        <div className="mt-5 sm:mt-8 flex items-center justify-center gap-4 sm:gap-6 text-on-surface-variant opacity-75">
+          <div className="flex items-center gap-1 sm:gap-1.5">
+            <span className="material-symbols-outlined text-[11px] sm:text-xs text-primary-container">
               favorite
             </span>
-            <span className="font-label-sm text-label-sm uppercase tracking-widest">
+            <span className="font-label-sm text-[9px] sm:text-label-sm uppercase tracking-wider sm:tracking-widest">
               #RizalPutriStory
             </span>
           </div>
           <span className="w-1 h-1 rounded-full bg-outline-variant"></span>
-          <div className="flex items-center gap-1.5">
-            <span className="material-symbols-outlined text-xs text-primary-container">
+          <div className="flex items-center gap-1 sm:gap-1.5">
+            <span className="material-symbols-outlined text-[11px] sm:text-xs text-primary-container">
               music_note
             </span>
-            <span className="font-label-sm text-label-sm uppercase tracking-widest">
+            <span className="font-label-sm text-[9px] sm:text-label-sm uppercase tracking-wider sm:tracking-widest">
               Audio Atmosphere
             </span>
           </div>
