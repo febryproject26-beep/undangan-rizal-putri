@@ -46,8 +46,8 @@ export default function Gallery({ onNavigate }) {
   return (
     <div className="flex flex-col w-full">
       {/* Photo Showcase Section */}
-      <section id="galeri" className="relative w-full overflow-hidden pb-space-xl">
-        <div className="max-w-[1080px] mx-auto px-margin">
+      <section id="galeri" className="relative w-full overflow-hidden pb-10 sm:pb-space-xl">
+        <div className="max-w-[1080px] mx-auto px-4 sm:px-margin">
           {/* Header & Category Filters */}
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-space-md pt-space-lg mb-space-xl">
             <div className="flex flex-col max-w-xl">
@@ -89,7 +89,7 @@ export default function Gallery({ onNavigate }) {
           </div>
 
           {/* Gallery Grid 4 Foto */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-space-md items-stretch" id="gallery-grid">
+          <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-space-md items-stretch" id="gallery-grid">
             {filteredItems.map((item) => (
               <div
                 key={item.id}
@@ -118,8 +118,8 @@ export default function Gallery({ onNavigate }) {
       </section>
 
       {/* Love Story Timeline Section */}
-      <section id="love-story" className="w-full py-space-xl relative">
-        <div className="max-w-[1080px] mx-auto px-margin">
+      <section id="love-story" className="w-full py-10 sm:py-space-xl relative">
+        <div className="max-w-[1080px] mx-auto px-4 sm:px-margin">
           <div className="text-center max-w-xl mx-auto mb-space-xl">
             <div className="inline-flex items-center gap-space-xs mb-space-xs">
               <span className="w-4 h-[1px] bg-primary"></span>
@@ -142,7 +142,7 @@ export default function Gallery({ onNavigate }) {
 
             <div className="flex flex-col gap-space-xl">
               {/* Event 1: 2020 */}
-              <div className="relative flex flex-col md:flex-row items-center gap-space-lg">
+              <div className="relative flex flex-col md:flex-row items-center gap-4 sm:gap-space-lg">
                 <div className="w-full md:w-1/2 md:pr-space-lg text-left md:text-right">
                   <span className="font-headline-sm text-headline-sm text-primary font-bold">
                     2020
@@ -177,7 +177,7 @@ export default function Gallery({ onNavigate }) {
               </div>
 
               {/* Event 2: 2022 */}
-              <div className="relative flex flex-col md:flex-row-reverse items-center gap-space-lg">
+              <div className="relative flex flex-col md:flex-row-reverse items-center gap-4 sm:gap-space-lg">
                 <div className="w-full md:w-1/2 md:pl-space-lg text-left">
                   <span className="font-headline-sm text-headline-sm text-primary font-bold">
                     2022
@@ -212,7 +212,7 @@ export default function Gallery({ onNavigate }) {
               </div>
 
               {/* Event 3: 2025 */}
-              <div className="relative flex flex-col md:flex-row items-center gap-space-lg">
+              <div className="relative flex flex-col md:flex-row items-center gap-4 sm:gap-space-lg">
                 <div className="w-full md:w-1/2 md:pr-space-lg text-left md:text-right">
                   <span className="font-headline-sm text-headline-sm text-primary font-bold">
                     2025
@@ -247,7 +247,7 @@ export default function Gallery({ onNavigate }) {
               </div>
 
               {/* Event 4: 2026 */}
-              <div className="relative flex flex-col md:flex-row-reverse items-center gap-space-lg">
+              <div className="relative flex flex-col md:flex-row-reverse items-center gap-4 sm:gap-space-lg">
                 <div className="w-full md:w-1/2 md:pl-space-lg text-left">
                   <span className="font-headline-sm text-headline-sm text-primary font-bold">
                     2026
@@ -288,8 +288,8 @@ export default function Gallery({ onNavigate }) {
       </section>
 
       {/* CTA Section */}
-      <section className="w-full bg-surface-container py-space-xl border-t border-outline-variant/30">
-        <div className="max-w-[1080px] mx-auto px-margin text-center">
+      <section className="w-full bg-surface-container py-10 sm:py-space-xl border-t border-outline-variant/30">
+        <div className="max-w-[1080px] mx-auto px-4 sm:px-margin text-center">
           <div className="max-w-xl mx-auto flex flex-col items-center">
             <span className="material-symbols-outlined text-primary text-4xl mb-space-xs">
               mark_email_read

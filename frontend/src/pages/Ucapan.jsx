@@ -161,7 +161,7 @@ export default function Ucapan() {
     <div className="flex flex-col w-full">
       {/* Toast Notification */}
       <div
-        className={`fixed bottom-20 left-1/2 -translate-x-1/2 z-50 px-space-md py-space-sm bg-inverse-surface text-inverse-on-surface rounded-full shadow-xl flex items-center gap-space-xs transition-all duration-300 ${isToastVisible
+        className={`fixed bottom-20 left-4 right-4 sm:left-1/2 sm:right-auto sm:-translate-x-1/2 z-50 px-space-md py-space-sm bg-inverse-surface text-inverse-on-surface rounded-full shadow-xl flex items-center justify-center gap-space-xs transition-all duration-300 ${isToastVisible
           ? 'opacity-100 translate-y-0'
           : 'opacity-0 translate-y-2 pointer-events-none'
           }`}
@@ -179,7 +179,7 @@ export default function Ucapan() {
       <section className="relative w-full overflow-hidden bg-surface-container-low py-space-xl">
         <div className="absolute -top-32 -left-32 w-96 h-96 rounded-full bg-primary-fixed/20 blur-3xl pointer-events-none"></div>
         <div className="absolute -bottom-32 -right-32 w-96 h-96 rounded-full bg-tertiary-fixed/30 blur-3xl pointer-events-none"></div>
-        <div className="max-w-[1080px] mx-auto px-margin relative z-10 flex flex-col md:flex-row items-center justify-between gap-space-lg">
+        <div className="max-w-[1080px] mx-auto px-4 sm:px-margin relative z-10 flex flex-col md:flex-row items-center justify-between gap-space-lg">
           <div className="max-w-xl text-center md:text-left">
             <div className="inline-flex items-center gap-space-xs px-space-sm py-1 rounded-full bg-surface-container mb-space-sm shadow-sm border border-outline-variant/30">
               <span className="material-symbols-outlined text-[14px] text-primary fill-1">
@@ -189,7 +189,7 @@ export default function Ucapan() {
                 Tanda Kehadiran &amp; Doa Kasih
               </span>
             </div>
-            <h1 className="font-display-lg text-display-lg text-on-surface tracking-tight mb-space-xs">
+            <h1 className="text-3xl sm:font-display-lg sm:text-display-lg text-on-surface tracking-tight mb-space-xs">
               Buku Tamu &amp; Ucapan Para Tamu
             </h1>
             <p className="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
@@ -198,8 +198,8 @@ export default function Ucapan() {
           </div>
 
           {/* Quick Stats */}
-          <div className="grid grid-cols-2 gap-space-md w-full md:w-auto shrink-0">
-            <div className="p-space-md bg-surface-container-lowest rounded-xl shadow-[0_4px_24px_rgba(43,38,37,0.05)] text-center flex flex-col items-center justify-center min-w-[130px] border border-outline-variant/30">
+          <div className="grid grid-cols-2 gap-3 sm:gap-space-md w-full md:w-auto shrink-0">
+            <div className="p-3 sm:p-space-md bg-surface-container-lowest rounded-xl shadow-[0_4px_24px_rgba(43,38,37,0.05)] text-center flex flex-col items-center justify-center min-w-[90px] sm:min-w-[130px] border border-outline-variant/30">
               <span className="font-headline-lg text-headline-lg text-primary leading-none" id="totalWishesCount">
                 {totalWishesCount}
               </span>
@@ -207,7 +207,7 @@ export default function Ucapan() {
                 Untaian Doa
               </span>
             </div>
-            <div className="p-space-md bg-surface-container-lowest rounded-xl shadow-[0_4px_24px_rgba(43,38,37,0.05)] text-center flex flex-col items-center justify-center min-w-[130px] border border-outline-variant/30">
+            <div className="p-3 sm:p-space-md bg-surface-container-lowest rounded-xl shadow-[0_4px_24px_rgba(43,38,37,0.05)] text-center flex flex-col items-center justify-center min-w-[90px] sm:min-w-[130px] border border-outline-variant/30">
               <span className="font-headline-lg text-headline-lg text-secondary leading-none">
                 100%
               </span>
@@ -220,7 +220,7 @@ export default function Ucapan() {
       </section>
 
       {/* Main Interaction Area: Form & Feed */}
-      <section id="ucapan-form" className="max-w-[1080px] mx-auto px-margin py-space-xl w-full">
+      <section id="ucapan-form" className="max-w-[1080px] mx-auto px-4 sm:px-margin py-10 sm:py-space-xl w-full">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-start">
           {/* Left Column: Form */}
           <div className="lg:col-span-6 flex flex-col gap-space-lg">
@@ -451,8 +451,8 @@ export default function Ucapan() {
       </section>
 
       {/* Digital Wedding Gift / Amplop Digital Section */}
-      <section id="amplop-digital" className="w-full bg-surface-container py-space-xl border-t border-outline-variant/30">
-        <div className="max-w-[1080px] mx-auto px-margin flex flex-col items-center">
+      <section id="amplop-digital" className="w-full bg-surface-container py-10 sm:py-space-xl border-t border-outline-variant/30">
+        <div className="max-w-[1080px] mx-auto px-4 sm:px-margin flex flex-col items-center">
           <div className="text-center max-w-xl mb-space-xl">
             <span className="font-label-sm text-label-sm text-primary uppercase tracking-widest font-semibold block mb-1">
               Ungkapan Tanda Kasih
@@ -465,7 +465,7 @@ export default function Ucapan() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-space-md w-full">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-space-md w-full">
             {/* BCA Card */}
             <div className="bg-surface-container-lowest p-space-lg rounded-xl shadow-[0_4px_24px_rgba(43,38,37,0.04)] flex flex-col justify-between relative overflow-hidden group border border-outline-variant/30">
               <div className="absolute -right-8 -bottom-8 w-32 h-32 bg-primary-fixed/20 rounded-full blur-2xl group-hover:bg-primary-fixed/40 transition-colors pointer-events-none"></div>
@@ -565,7 +565,7 @@ export default function Ucapan() {
             </div>
 
             {/* Physical Gift Address */}
-            <div className="bg-surface-container-lowest p-space-lg rounded-xl shadow-[0_4px_24px_rgba(43,38,37,0.04)] flex flex-col justify-between relative overflow-hidden group md:col-span-2 lg:col-span-1 border border-outline-variant/30">
+            <div className="bg-surface-container-lowest p-space-lg rounded-xl shadow-[0_4px_24px_rgba(43,38,37,0.04)] flex flex-col justify-between relative overflow-hidden group sm:col-span-2 lg:col-span-1 border border-outline-variant/30">
               <div className="absolute -right-8 -bottom-8 w-32 h-32 bg-tertiary-fixed/30 rounded-full blur-2xl group-hover:bg-tertiary-fixed/50 transition-colors pointer-events-none"></div>
               <div>
                 <div className="flex items-center justify-between mb-space-md">

@@ -42,7 +42,7 @@ export default function Monogram() {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center py-space-xl px-margin min-h-[calc(100vh-160px)]">
+    <div className="flex flex-col items-center justify-center py-space-xl px-4 sm:px-margin min-h-[calc(100vh-160px)]">
       <div className="max-w-xl w-full text-center mb-space-lg">
         <span className="font-label-sm text-label-sm uppercase tracking-widest text-primary font-semibold">
           Insignia &amp; Lambang Pernikahan

@@ -137,7 +137,7 @@ export default function App() {
         Mulai dari Beranda (Hero, Ayat Suci, Profil, Acara, Lokasi),
         Galeri, Monogram, hingga Buku Tamu & RSVP
       */}
-      <main className="w-full pt-20 bg-surface min-h-[calc(100vh-80px)] flex flex-col">
+      <main className="w-full pt-14 sm:pt-20 bg-surface min-h-[calc(100vh-56px)] sm:min-h-[calc(100vh-80px)] flex flex-col">
         {/* Section 1: Beranda (Hero, Ayat Suci, Countdown, Mempelai, Acara, Lokasi) */}
         <section id="section-beranda" className="w-full">
           <Beranda onNavigate={handleScrollTo} />

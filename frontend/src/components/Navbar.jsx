@@ -29,7 +29,7 @@ export default function Navbar({ activeSection = 'hero', onScrollTo, onSaveDate,
 
   return (
     <header className="fixed top-0 left-0 right-0 z-40 bg-surface/85 backdrop-blur-xl shadow-[0_1px_8px_rgba(43,38,37,0.04)] border-b border-outline-variant/20 transition-all duration-300">
-      <div className="h-20 max-w-[1080px] mx-auto px-margin flex items-center justify-between">
+      <div className="h-14 sm:h-20 max-w-[1080px] mx-auto px-4 sm:px-margin flex items-center justify-between">
         {/* Brand / Logo */}
         <button
           onClick={(e) => handleLinkClick(e, 'hero')}

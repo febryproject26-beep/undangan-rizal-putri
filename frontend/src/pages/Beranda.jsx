@@ -91,7 +91,7 @@ export default function Beranda({ onNavigate }) {
       {/* Hero Section */}
       <section
         id="hero"
-        className="relative w-full overflow-hidden bg-surface-container-lowest"
+        className="relative w-full overflow-hidden bg-surface-container-lowest min-h-screen sm:min-h-0"
       >
         <div className="absolute inset-0 z-0 opacity-40">
           <div
@@ -104,7 +104,7 @@ export default function Beranda({ onNavigate }) {
           <div className="absolute inset-0 bg-gradient-to-b from-surface/30 via-surface/60 to-surface"></div>
         </div>
 
-        <div className="relative z-10 max-w-[1080px] mx-auto px-margin pt-space-xl pb-space-xl flex flex-col items-center text-center">
+        <div className="relative z-10 max-w-[1080px] mx-auto px-4 sm:px-margin pt-16 sm:pt-space-xl pb-space-xl flex flex-col items-center text-center">
           {/* Decorative Emblem */}
           <div className="inline-flex items-center gap-space-sm mb-space-md">
             <span className="w-10 h-px bg-primary-container"></span>
@@ -137,70 +137,70 @@ export default function Beranda({ onNavigate }) {
             <span className="font-label-sm text-label-sm tracking-[0.25em] text-outline uppercase mb-space-xs">
               Janji Suci
             </span>
-            <h1 className="font-display-lg text-display-lg text-on-surface tracking-tight font-normal leading-tight">
+            <h1 className="text-5xl sm:text-6xl md:font-display-lg md:text-display-lg text-on-surface tracking-tight font-normal leading-tight">
               Rizal{' '}
               <span className="italic font-normal text-primary-container">
                 &amp;
               </span>{' '}
               Putri
             </h1>
-            <p className="font-label-md text-label-md uppercase tracking-[0.2em] text-outline mt-space-xs">
+            <p className="text-[10px] sm:font-label-md sm:text-label-md uppercase tracking-[0.15em] sm:tracking-[0.2em] text-outline mt-space-xs">
               Jum'at, 20 November 2026 • Cigugur, Kuningan
             </p>
           </div>
 
           {/* Interactive Countdown Box */}
-          <div className="w-full max-w-xl mx-auto mt-space-md mb-space-lg p-space-md rounded-xl bg-surface-container-low/90 backdrop-blur-md shadow-[0_12px_40px_rgba(43,38,37,0.06)] border border-outline-variant/30">
+          <div className="w-full max-w-xs sm:max-w-xl mx-auto mt-space-md mb-space-lg p-3 sm:p-space-md rounded-xl bg-surface-container-low/90 backdrop-blur-md shadow-[0_12px_40px_rgba(43,38,37,0.06)] border border-outline-variant/30">
             <div className="text-center mb-space-sm">
               <span className="font-label-sm text-label-sm uppercase tracking-widest text-primary font-semibold">
                 Menghitung Hari Bahagia
               </span>
             </div>
             <div
-              className="grid grid-cols-4 gap-space-sm text-center"
+              className="grid grid-cols-4 gap-2 sm:gap-space-sm text-center"
               id="wedding-countdown"
             >
-              <div className="flex flex-col items-center justify-center p-space-sm rounded-lg bg-surface-container-lowest shadow-sm">
+              <div className="flex flex-col items-center justify-center py-3 sm:p-space-sm rounded-lg bg-surface-container-lowest shadow-sm">
                 <span
-                  className="font-headline-lg text-headline-lg text-primary font-medium leading-none"
+                  className="text-2xl sm:font-headline-lg sm:text-headline-lg text-primary font-bold leading-none"
                   id="cd-days"
                 >
                   {timeLeft.days}
                 </span>
-                <span className="font-label-sm text-label-sm uppercase text-outline mt-1">
+                <span className="text-[9px] sm:font-label-sm sm:text-label-sm uppercase text-outline mt-1">
                   Hari
                 </span>
               </div>
-              <div className="flex flex-col items-center justify-center p-space-sm rounded-lg bg-surface-container-lowest shadow-sm">
+              <div className="flex flex-col items-center justify-center py-3 sm:p-space-sm rounded-lg bg-surface-container-lowest shadow-sm">
                 <span
-                  className="font-headline-lg text-headline-lg text-primary font-medium leading-none"
+                  className="text-2xl sm:font-headline-lg sm:text-headline-lg text-primary font-bold leading-none"
                   id="cd-hours"
                 >
                   {timeLeft.hours}
                 </span>
-                <span className="font-label-sm text-label-sm uppercase text-outline mt-1">
+                <span className="text-[9px] sm:font-label-sm sm:text-label-sm uppercase text-outline mt-1">
                   Jam
                 </span>
               </div>
-              <div className="flex flex-col items-center justify-center p-space-sm rounded-lg bg-surface-container-lowest shadow-sm">
+              <div className="flex flex-col items-center justify-center py-3 sm:p-space-sm rounded-lg bg-surface-container-lowest shadow-sm">
                 <span
-                  className="font-headline-lg text-headline-lg text-primary font-medium leading-none"
+                  className="text-2xl sm:font-headline-lg sm:text-headline-lg text-primary font-bold leading-none"
                   id="cd-minutes"
                 >
                   {timeLeft.minutes}
                 </span>
-                <span className="font-label-sm text-label-sm uppercase text-outline mt-1">
+                <span className="text-[9px] sm:font-label-sm sm:text-label-sm uppercase text-outline mt-1">
                   Menit
                 </span>
               </div>
-              <div className="flex flex-col items-center justify-center p-space-sm rounded-lg bg-surface-container-lowest shadow-sm">
+              <div className="flex flex-col items-center justify-center py-3 sm:p-space-sm rounded-lg bg-surface-container-lowest shadow-sm">
                 <span
-                  className="font-headline-lg text-headline-lg text-primary font-medium leading-none"
+                  className="text-2xl sm:font-headline-lg sm:text-headline-lg text-primary font-bold leading-none"
                   id="cd-seconds"
                 >
                   {timeLeft.seconds}
                 </span>
-                <span className="font-label-sm text-label-sm uppercase text-outline mt-1">
+                <span className="text-[9px] sm:font-label-sm sm:text-label-sm uppercase text-outline mt-1">
                   Detik
                 </span>
               </div>
@@ -227,7 +227,7 @@ export default function Beranda({ onNavigate }) {
       {/* Profil Mempelai Section */}
       <section
         id="mempelai"
-        className="w-full max-w-[1080px] mx-auto px-margin py-space-xl"
+        className="w-full max-w-[1080px] mx-auto px-4 sm:px-margin py-10 sm:py-space-xl"
       >
         <div className="text-center max-w-xl mx-auto mb-space-xl">
           <span className="font-label-sm text-label-sm uppercase tracking-[0.25em] text-primary font-semibold">
@@ -252,7 +252,7 @@ export default function Beranda({ onNavigate }) {
               <span>Sang Mempelai Pria</span>
             </div>
 
-            <div className="w-56 h-72 sm:w-64 sm:h-80 my-space-md overflow-hidden rounded-t-[100px] rounded-b-xl shadow-md bg-surface-container border border-primary-container/20">
+            <div className="w-44 h-60 sm:w-56 sm:h-72 md:w-64 md:h-80 my-space-md overflow-hidden rounded-t-[80px] sm:rounded-t-[100px] rounded-b-xl shadow-md bg-surface-container border border-primary-container/20">
               <img
                 alt="Rizal Rofiqallah S.Pd"
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
@@ -305,7 +305,7 @@ export default function Beranda({ onNavigate }) {
               </span>
             </div>
 
-            <div className="w-56 h-72 sm:w-64 sm:h-80 my-space-md overflow-hidden rounded-t-[100px] rounded-b-xl shadow-md bg-surface-container border border-primary-container/20">
+            <div className="w-44 h-60 sm:w-56 sm:h-72 md:w-64 md:h-80 my-space-md overflow-hidden rounded-t-[80px] sm:rounded-t-[100px] rounded-b-xl shadow-md bg-surface-container border border-primary-container/20">
               <img
                 alt="Putri Nabila Maelani"
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
@@ -352,8 +352,8 @@ export default function Beranda({ onNavigate }) {
       </section>
 
       {/* Event Overview Section */}
-      <section id="acara" className="w-full bg-surface-container py-space-xl">
-        <div className="max-w-[1080px] mx-auto px-margin">
+      <section id="acara" className="w-full bg-surface-container py-10 sm:py-space-xl">
+        <div className="max-w-[1080px] mx-auto px-4 sm:px-margin">
           <div className="text-center mb-space-lg">
             <span className="font-label-sm text-label-sm uppercase tracking-widest text-primary font-semibold">
               Ikhtisar Acara
@@ -400,7 +400,7 @@ export default function Beranda({ onNavigate }) {
                 </div>
               </div>
 
-              <div className="mt-space-lg pt-space-md flex flex-col sm:flex-row items-center justify-between gap-2 border-t border-outline-variant/30 text-center">
+              <div className="mt-space-lg pt-space-md flex flex-col items-center gap-2 border-t border-outline-variant/30 text-center sm:flex-row sm:justify-between">
                 <span className="font-label-sm text-label-sm text-outline uppercase tracking-wider">
                   Busana: Sopan dan rapi
                 </span>
@@ -416,7 +416,7 @@ export default function Beranda({ onNavigate }) {
       {/* Lokasi Acara Section */}
       <section
         id="lokasi-acara"
-        className="w-full max-w-[1080px] mx-auto px-margin py-space-xl"
+        className="w-full max-w-[1080px] mx-auto px-4 sm:px-margin py-10 sm:py-space-xl"
       >
         <div className="text-center max-w-xl mx-auto mb-space-xl">
           <div className="inline-flex items-center gap-space-sm mb-space-xs">
@@ -495,9 +495,9 @@ export default function Beranda({ onNavigate }) {
               </div>
             </div>
 
-            <div className="flex flex-wrap items-center gap-space-sm mt-space-lg pt-space-md border-t border-outline-variant/40">
+            <div className="flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-2 sm:gap-space-sm mt-space-lg pt-space-md border-t border-outline-variant/40">
               <a
-                className="inline-flex items-center gap-space-xs px-space-md py-space-sm bg-primary text-on-primary font-label-md text-label-md uppercase tracking-wider rounded-full shadow-[0_4px_20px_rgba(197,160,89,0.25)] hover:bg-primary-container hover:text-on-primary-container transition-all duration-300"
+                className="inline-flex items-center justify-center gap-space-xs px-space-md py-space-sm bg-primary text-on-primary font-label-md text-label-md uppercase tracking-wider rounded-full shadow-[0_4px_20px_rgba(197,160,89,0.25)] hover:bg-primary-container hover:text-on-primary-container transition-all duration-300 w-full sm:w-auto"
                 href="https://maps.app.goo.gl/6224MCix1avTx3YQ8?g_st=ac"
                 rel="noopener noreferrer"
                 target="_blank"
@@ -508,7 +508,7 @@ export default function Beranda({ onNavigate }) {
                 <span>Buka di Google Maps</span>
               </a>
               <a
-                className="inline-flex items-center gap-space-xs px-space-md py-space-sm bg-surface-container-highest text-on-surface font-label-md text-label-md uppercase tracking-wider rounded-full hover:bg-surface-variant transition-colors"
+                className="inline-flex items-center justify-center gap-space-xs px-space-md py-space-sm bg-surface-container-highest text-on-surface font-label-md text-label-md uppercase tracking-wider rounded-full hover:bg-surface-variant transition-colors w-full sm:w-auto"
                 href="https://waze.com/ul?ll=-6.969173,108.460826&navigate=yes"
                 rel="noopener noreferrer"
                 target="_blank"
@@ -569,7 +569,7 @@ export default function Beranda({ onNavigate }) {
 
       {/* Quick CTA to Ucapan */}
       <section className="w-full bg-surface-container-low py-space-lg border-t border-outline-variant/30">
-        <div className="max-w-[1080px] mx-auto px-margin flex flex-col sm:flex-row items-center justify-between gap-space-md">
+        <div className="max-w-[1080px] mx-auto px-4 sm:px-margin flex flex-col sm:flex-row items-center justify-between gap-space-md text-center sm:text-left">
           <div className="text-center sm:text-left">
             <h3 className="font-headline-sm text-headline-sm text-on-surface">
               Kirimkan Doa &amp; Konfirmasi Kehadiran

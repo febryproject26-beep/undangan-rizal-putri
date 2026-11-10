@@ -3,7 +3,7 @@ import React from 'react';
 export default function Footer() {
   return (
     <footer className="w-full bg-surface-container-low mt-space-xl relative border-t border-outline-variant/30">
-      <div className="max-w-[1080px] mx-auto px-margin py-space-xl flex flex-col items-center text-center">
+      <div className="max-w-[1080px] mx-auto px-4 sm:px-margin py-space-xl flex flex-col items-center text-center">
         <div className="w-14 h-14 rounded-full bg-surface-container flex items-center justify-center mb-space-md shadow-[0_1px_8px_rgba(43,38,37,0.05)] border border-primary-container/20">
           <span className="font-headline-md text-headline-md text-primary italic leading-none">
             R&amp;P
