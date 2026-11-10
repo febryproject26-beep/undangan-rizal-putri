@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { getWishes, createWish, confirmGift } from '../services/api';
+import { getWishes, createWish } from '../services/api';
 
 export default function Ucapan() {
   const [selectedCategory, setSelectedCategory] = useState('Keluarga');
@@ -11,14 +11,6 @@ export default function Ucapan() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [totalWishesCount, setTotalWishesCount] = useState(0);
-
-  // Modal konfirmasi kirim kado/amplop
-  const [isGiftModalOpen, setIsGiftModalOpen] = useState(false);
-  const [giftSender, setGiftSender] = useState('');
-  const [giftBank, setGiftBank] = useState('BCA (a.n. Putri Nabila Maelani)');
-  const [giftAmount, setGiftAmount] = useState('');
-  const [giftNotes, setGiftNotes] = useState('');
-  const [isSubmittingGift, setIsSubmittingGift] = useState(false);
 
   const [wishes, setWishes] = useState([]);
 
@@ -120,33 +112,6 @@ export default function Ucapan() {
       showToast('Doa & ucapan restu Anda berhasil dikirimkan!');
     } finally {
       setIsSubmitting(false);
-    }
-  };
-
-  // Submit konfirmasi kado / amplop digital
-  const handleGiftSubmit = async (e) => {
-    e.preventDefault();
-    if (!giftSender.trim()) return;
-
-    setIsSubmittingGift(true);
-    try {
-      await confirmGift({
-        senderName: giftSender.trim(),
-        bankTarget: giftBank,
-        amount: giftAmount,
-        notes: giftNotes.trim(),
-      });
-      setIsGiftModalOpen(false);
-      setGiftSender('');
-      setGiftAmount('');
-      setGiftNotes('');
-      showToast('Konfirmasi tanda kasih berhasil dicatat. Terima kasih banyak!');
-    } catch (err) {
-      console.error('Gagal konfirmasi kado:', err);
-      setIsGiftModalOpen(false);
-      showToast('Konfirmasi Anda berhasil dicatat. Terima kasih!');
-    } finally {
-      setIsSubmittingGift(false);
     }
   };
 
@@ -488,9 +453,9 @@ export default function Ucapan() {
                   a.n. Putri Nabila Maelani
                 </p>
               </div>
-              <div className="pt-3 sm:pt-space-md mt-3 sm:mt-space-md flex flex-col gap-2">
+              <div className="pt-3 sm:pt-space-md mt-3 sm:mt-space-md">
                 <button
-                  className="w-full py-2 px-space-md rounded-lg bg-surface-container hover:bg-primary-container hover:text-on-primary-container text-on-surface font-label-md text-xs sm:text-label-md uppercase tracking-wider font-semibold transition-all flex items-center justify-center gap-space-xs"
+                  className="w-full py-2.5 px-space-md rounded-lg bg-surface-container hover:bg-primary-container hover:text-on-primary-container text-on-surface font-label-md text-xs sm:text-label-md uppercase tracking-wider font-semibold transition-all flex items-center justify-center gap-space-xs"
                   onClick={() => copyToClipboard('2992314363', 'Nomor Rekening BCA')}
                   type="button"
                 >
@@ -498,19 +463,6 @@ export default function Ucapan() {
                     content_copy
                   </span>
                   <span>Salin Nomor Rekening</span>
-                </button>
-                <button
-                  className="w-full py-2 px-space-md rounded-lg bg-primary-container/20 hover:bg-primary-container hover:text-on-primary-container text-primary font-label-md text-xs sm:text-label-md uppercase tracking-wider font-semibold transition-all flex items-center justify-center gap-space-xs"
-                  onClick={() => {
-                    setGiftBank('BCA (a.n. Putri Nabila Maelani)');
-                    setIsGiftModalOpen(true);
-                  }}
-                  type="button"
-                >
-                  <span className="material-symbols-outlined text-[16px]">
-                    check_circle
-                  </span>
-                  <span>Konfirmasi Transfer</span>
                 </button>
               </div>
             </div>
@@ -537,9 +489,9 @@ export default function Ucapan() {
                   a.n. Putri Nabila Maelani
                 </p>
               </div>
-              <div className="pt-3 sm:pt-space-md mt-3 sm:mt-space-md flex flex-col gap-2">
+              <div className="pt-3 sm:pt-space-md mt-3 sm:mt-space-md">
                 <button
-                  className="w-full py-2 px-space-md rounded-lg bg-surface-container hover:bg-primary-container hover:text-on-primary-container text-on-surface font-label-md text-xs sm:text-label-md uppercase tracking-wider font-semibold transition-all flex items-center justify-center gap-space-xs"
+                  className="w-full py-2.5 px-space-md rounded-lg bg-surface-container hover:bg-primary-container hover:text-on-primary-container text-on-surface font-label-md text-xs sm:text-label-md uppercase tracking-wider font-semibold transition-all flex items-center justify-center gap-space-xs"
                   onClick={() => copyToClipboard('901109736738', 'Nomor Rekening Seabank')}
                   type="button"
                 >
@@ -547,19 +499,6 @@ export default function Ucapan() {
                     content_copy
                   </span>
                   <span>Salin Nomor Rekening</span>
-                </button>
-                <button
-                  className="w-full py-2 px-space-md rounded-lg bg-secondary-fixed/30 hover:bg-secondary hover:text-white text-secondary font-label-md text-xs sm:text-label-md uppercase tracking-wider font-semibold transition-all flex items-center justify-center gap-space-xs"
-                  onClick={() => {
-                    setGiftBank('Seabank (a.n. Putri Nabila Maelani)');
-                    setIsGiftModalOpen(true);
-                  }}
-                  type="button"
-                >
-                  <span className="material-symbols-outlined text-[16px]">
-                    check_circle
-                  </span>
-                  <span>Konfirmasi Transfer</span>
                 </button>
               </div>
             </div>
@@ -604,110 +543,6 @@ export default function Ucapan() {
           </div>
         </div>
       </section>
-
-      {/* Modal Konfirmasi Transfer Kado/Amplop */}
-      {isGiftModalOpen && (
-        <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-inverse-surface/80 backdrop-blur-md p-4 sm:p-6"
-          onClick={() => setIsGiftModalOpen(false)}
-        >
-          <div
-            className="relative w-full max-w-lg bg-surface-container-lowest rounded-2xl overflow-hidden shadow-2xl border border-outline-variant/30"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <div className="flex items-center justify-between p-space-md bg-surface-container border-b border-outline-variant/30">
-              <div className="flex items-center gap-space-xs">
-                <span className="material-symbols-outlined text-primary">
-                  volunteer_activism
-                </span>
-                <span className="font-title-md text-title-md text-on-surface">
-                  Konfirmasi Tanda Kasih / Amplop
-                </span>
-              </div>
-              <button
-                onClick={() => setIsGiftModalOpen(false)}
-                className="w-8 h-8 rounded-full bg-surface hover:bg-surface-variant flex items-center justify-center text-on-surface"
-                type="button"
-              >
-                <span className="material-symbols-outlined text-[18px]">close</span>
-              </button>
-            </div>
-
-            <form onSubmit={handleGiftSubmit} className="p-space-lg flex flex-col gap-4">
-              <div className="flex flex-col gap-1">
-                <label className="font-label-sm text-label-sm uppercase tracking-wider text-outline">
-                  Nama Pengirim
-                </label>
-                <input
-                  type="text"
-                  required
-                  placeholder="Contoh: Raden Mas Dananjaya"
-                  value={giftSender}
-                  onChange={(e) => setGiftSender(e.target.value)}
-                  className="w-full bg-surface-container-low px-3 py-2 rounded-lg text-on-surface font-body-md text-body-md focus:outline-none focus:ring-1 focus:ring-primary-container"
-                />
-              </div>
-
-              <div className="flex flex-col gap-1">
-                <label className="font-label-sm text-label-sm uppercase tracking-wider text-outline">
-                  Tujuan Rekening
-                </label>
-                <select
-                  value={giftBank}
-                  onChange={(e) => setGiftBank(e.target.value)}
-                  className="w-full bg-surface-container-low px-3 py-2 rounded-lg text-on-surface font-body-md text-body-md focus:outline-none"
-                >
-                  <option value="BCA (a.n. Putri Nabila Maelani)">BCA - 2992314363 (Putri Nabila Maelani)</option>
-                  <option value="Seabank (a.n. Putri Nabila Maelani)">Seabank - 901109736738 (Putri Nabila Maelani)</option>
-                </select>
-              </div>
-
-              <div className="flex flex-col gap-1">
-                <label className="font-label-sm text-label-sm uppercase tracking-wider text-outline">
-                  Nominal (Opsional)
-                </label>
-                <input
-                  type="number"
-                  placeholder="Contoh: 500000"
-                  value={giftAmount}
-                  onChange={(e) => setGiftAmount(e.target.value)}
-                  className="w-full bg-surface-container-low px-3 py-2 rounded-lg text-on-surface font-body-md text-body-md focus:outline-none focus:ring-1 focus:ring-primary-container"
-                />
-              </div>
-
-              <div className="flex flex-col gap-1">
-                <label className="font-label-sm text-label-sm uppercase tracking-wider text-outline">
-                  Catatan Doa / Pesan Khusus (Opsional)
-                </label>
-                <textarea
-                  rows="2"
-                  placeholder="Pesan pelengkap..."
-                  value={giftNotes}
-                  onChange={(e) => setGiftNotes(e.target.value)}
-                  className="w-full bg-surface-container-low px-3 py-2 rounded-lg text-on-surface font-body-md text-body-md focus:outline-none focus:ring-1 focus:ring-primary-container resize-none"
-                ></textarea>
-              </div>
-
-              <div className="flex gap-3 pt-2">
-                <button
-                  type="button"
-                  onClick={() => setIsGiftModalOpen(false)}
-                  className="flex-1 py-2 rounded-lg bg-surface-container text-on-surface font-label-md text-label-md uppercase tracking-wider"
-                >
-                  Batal
-                </button>
-                <button
-                  type="submit"
-                  disabled={isSubmittingGift}
-                  className="flex-1 py-2 rounded-lg bg-primary-container text-on-primary-container hover:bg-primary hover:text-on-primary font-label-md text-label-md uppercase tracking-wider shadow-md transition-all disabled:opacity-60"
-                >
-                  {isSubmittingGift ? 'Menyimpan...' : 'Kirim Konfirmasi'}
-                </button>
-              </div>
-            </form>
-          </div>
-        </div>
-      )}
     </div>
   );
 }
