@@ -49,24 +49,24 @@ export default function Gallery({ onNavigate }) {
       <section id="galeri" className="relative w-full overflow-hidden pb-10 sm:pb-space-xl">
         <div className="max-w-[1080px] mx-auto px-4 sm:px-margin">
           {/* Header & Category Filters */}
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-space-md pt-space-lg mb-space-xl">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-space-md pt-6 sm:pt-space-lg mb-8 sm:mb-space-xl">
             <div className="flex flex-col max-w-xl">
               <div className="flex items-center gap-space-xs mb-space-xs">
                 <span className="w-6 h-[1px] bg-primary"></span>
-                <span className="font-label-sm text-label-sm text-primary uppercase tracking-widest font-semibold">
+                <span className="font-label-sm text-[10px] sm:text-label-sm text-primary uppercase tracking-widest font-semibold">
                   Babak I • Dokumentasi Memori
                 </span>
               </div>
-              <h2 className="font-headline-lg text-headline-lg text-on-surface">
+              <h2 className="font-headline-lg text-2xl sm:text-headline-lg text-on-surface">
                 Potret Kenangan Abadi
               </h2>
-              <p className="font-body-md text-body-md text-on-surface-variant mt-space-xs">
+              <p className="font-body-md text-xs sm:text-body-md text-on-surface-variant mt-space-xs leading-relaxed">
                 Rangkaian kilasan visual yang merekam tatap, senyum, dan kehangatan rasa dalam menyambut awal lembaran baru kami berdua.
               </p>
             </div>
 
             {/* Category Filter Pills */}
-            <div className="flex items-center gap-space-xs p-1 bg-surface-container-high rounded-full overflow-x-auto self-start md:self-auto shadow-sm border border-outline-variant/30">
+            <div className="flex items-center gap-1 sm:gap-space-xs p-1 bg-surface-container-high rounded-full overflow-x-auto self-start md:self-auto shadow-sm border border-outline-variant/30 text-xs sm:text-label-md">
               {[
                 { id: 'all', label: 'Semua' },
                 { id: 'prewed', label: 'Pre-Wedding' },
@@ -75,7 +75,7 @@ export default function Gallery({ onNavigate }) {
                 <button
                   key={tab.id}
                   onClick={() => setActiveCategory(tab.id)}
-                  className={`px-space-md py-space-xs rounded-full font-label-md text-label-md tracking-wider uppercase transition-all duration-300 ${
+                  className={`px-3 sm:px-space-md py-1 sm:py-space-xs rounded-full font-label-md text-[11px] sm:text-label-md tracking-wider uppercase transition-all duration-300 ${
                     activeCategory === tab.id
                       ? 'bg-primary-container text-on-primary-container font-semibold shadow-sm'
                       : 'text-on-surface-variant hover:text-primary'
@@ -120,18 +120,18 @@ export default function Gallery({ onNavigate }) {
       {/* Love Story Timeline Section */}
       <section id="love-story" className="w-full py-10 sm:py-space-xl relative">
         <div className="max-w-[1080px] mx-auto px-4 sm:px-margin">
-          <div className="text-center max-w-xl mx-auto mb-space-xl">
+          <div className="text-center max-w-xl mx-auto mb-8 sm:mb-space-xl">
             <div className="inline-flex items-center gap-space-xs mb-space-xs">
               <span className="w-4 h-[1px] bg-primary"></span>
-              <span className="font-label-sm text-label-sm text-primary uppercase tracking-widest font-semibold">
+              <span className="font-label-sm text-[10px] sm:text-label-sm text-primary uppercase tracking-widest font-semibold">
                 Babak II • Kisah Cinta Kami
               </span>
               <span className="w-4 h-[1px] bg-primary"></span>
             </div>
-            <h2 className="font-headline-lg text-headline-lg text-on-surface">
+            <h2 className="font-headline-lg text-2xl sm:text-headline-lg text-on-surface">
               Untaian Takdir &amp; Waktu
             </h2>
-            <p className="font-body-md text-body-md text-on-surface-variant mt-space-xs">
+            <p className="font-body-md text-xs sm:text-body-md text-on-surface-variant mt-space-xs leading-relaxed px-2">
               Setiap perjumpaan telah digariskan dengan sempurna. Inilah perjalanan hati yang membawa kami melangkah bersama menuju ikrar suci.
             </p>
           </div>

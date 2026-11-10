@@ -229,121 +229,127 @@ export default function Beranda({ onNavigate }) {
         id="mempelai"
         className="w-full max-w-[1080px] mx-auto px-4 sm:px-margin py-10 sm:py-space-xl"
       >
-        <div className="text-center max-w-xl mx-auto mb-space-xl">
-          <span className="font-label-sm text-label-sm uppercase tracking-[0.25em] text-primary font-semibold">
+        <div className="text-center max-w-xl mx-auto mb-6 sm:mb-space-xl">
+          <span className="font-label-sm text-[10px] sm:text-label-sm uppercase tracking-[0.25em] text-primary font-semibold">
             Dua Jiwa Satu Tujuan
           </span>
-          <h2 className="font-headline-lg text-headline-lg text-on-surface mt-space-xs">
+          <h2 className="font-headline-lg text-2xl sm:text-headline-lg text-on-surface mt-1 sm:mt-space-xs">
             Pasangan Mempelai
           </h2>
-          <p className="font-body-md text-body-md text-on-surface-variant mt-space-sm leading-relaxed">
+          <p className="font-body-md text-xs sm:text-body-md text-on-surface-variant mt-1.5 sm:mt-space-sm leading-relaxed px-2">
             Dengan memohon rahmat dan ridho Allah Subhanahu wa Ta'ala, kami
             bermaksud melangsungkan janji suci pernikahan kami berdua.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-space-xl items-stretch">
+        <div className="grid grid-cols-2 gap-2.5 sm:gap-6 md:gap-space-xl items-stretch">
           {/* Groom Profile Card */}
-          <div className="group relative flex flex-col items-center text-center p-space-lg rounded-xl bg-surface-container-low shadow-[0_8px_30px_rgba(43,38,37,0.04)] transition-all duration-300 hover:shadow-[0_16px_45px_rgba(43,38,37,0.08)] border border-outline-variant/30">
-            <div className="absolute top-4 left-4 flex items-center gap-1 font-label-sm text-label-sm uppercase tracking-widest text-outline">
-              <span className="material-symbols-outlined text-primary text-[14px]">
-                spa
+          <div className="group relative flex flex-col items-center text-center p-3 sm:p-5 md:p-space-lg rounded-2xl bg-surface-container-low shadow-[0_4px_20px_rgba(43,38,37,0.04)] sm:shadow-[0_8px_30px_rgba(43,38,37,0.04)] transition-all duration-300 hover:shadow-[0_16px_45px_rgba(43,38,37,0.08)] border border-outline-variant/30 justify-between">
+            <div className="w-full">
+              <div className="flex items-center justify-center gap-1 font-label-sm text-[9px] sm:text-label-sm uppercase tracking-wider text-outline mb-1.5 sm:mb-2">
+                <span className="material-symbols-outlined text-primary text-[12px] sm:text-[14px]">
+                  spa
+                </span>
+                <span>Mempelai Pria</span>
+              </div>
+
+              {/* Foto Mempelai Pria */}
+              <div className="w-full aspect-[3/4] max-w-[140px] sm:max-w-[220px] md:max-w-[260px] my-2 sm:my-space-md overflow-hidden rounded-t-[40px] sm:rounded-t-[80px] md:rounded-t-[100px] rounded-b-xl shadow-md bg-surface-container border border-primary-container/20 mx-auto">
+                <img
+                  alt="Rizal Rofiqallah S.Pd"
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  src="/images/mempelai/rizal.jpeg"
+                />
+              </div>
+
+              <h3 className="font-headline-md text-sm sm:text-lg md:text-headline-md text-on-surface font-semibold leading-snug mt-1 sm:mt-2">
+                Rizal Rofiqallah S.Pd.
+              </h3>
+              <span className="block text-[10px] sm:text-xs md:font-label-md md:text-label-md uppercase tracking-wider text-primary font-medium mt-0.5 sm:mt-1">
+                Putra Kedua
               </span>
-              <span>Sang Mempelai Pria</span>
-            </div>
-
-            <div className="w-44 h-60 sm:w-56 sm:h-72 md:w-64 md:h-80 my-space-md overflow-hidden rounded-t-[80px] sm:rounded-t-[100px] rounded-b-xl shadow-md bg-surface-container border border-primary-container/20">
-              <img
-                alt="Rizal Rofiqallah S.Pd"
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                src="/images/mempelai/rizal.jpeg"
-              />
-            </div>
-
-            <h3 className="font-headline-md text-headline-md text-on-surface">
-              Rizal Rofiqallah S.Pd.
-            </h3>
-            <span className="font-label-md text-label-md uppercase tracking-wider text-primary font-medium mt-1">
-              Putra Kedua
-            </span>
-            <div className="mt-space-md text-on-surface-variant font-body-md text-body-md">
-              <p className="text-outline uppercase font-label-sm text-label-sm tracking-wider mb-1">
-                Keluarga Terhormat
-              </p>
-              <p className="font-medium text-on-surface">
-                Bapak Mohammad Hasyim (alm)
-              </p>
-              <p className="font-medium text-on-surface">
-                &amp; Ibu Yanah
-              </p>
-              <p className="text-outline text-label-sm font-label-sm mt-1">
-                Cigugur, Kuningan
-              </p>
+              <div className="mt-2 sm:mt-space-md text-on-surface-variant text-[10px] sm:text-xs md:text-body-md leading-snug sm:leading-normal">
+                <p className="text-outline uppercase text-[8px] sm:text-[10px] tracking-wider mb-0.5 sm:mb-1">
+                  Keluarga Terhormat
+                </p>
+                <p className="font-medium text-on-surface">
+                  Bpk. Mohammad Hasyim (alm)
+                </p>
+                <p className="font-medium text-on-surface">
+                  &amp; Ibu Yanah
+                </p>
+                <p className="text-outline text-[9px] sm:text-label-sm mt-0.5 sm:mt-1">
+                  Cigugur, Kuningan
+                </p>
+              </div>
             </div>
 
             <a
-              className="mt-space-lg inline-flex items-center gap-space-xs px-space-md py-space-xs rounded-full bg-surface-container-highest text-on-surface hover:bg-primary-container hover:text-on-primary-container transition-colors shadow-sm"
+              className="mt-3 sm:mt-space-lg inline-flex items-center justify-center gap-1 sm:gap-space-xs px-2 sm:px-space-md py-1 sm:py-space-xs rounded-full bg-surface-container-highest text-on-surface hover:bg-primary-container hover:text-on-primary-container transition-colors shadow-sm text-[9px] sm:text-label-sm w-full max-w-[125px] sm:max-w-none"
               href="https://instagram.com"
               rel="noopener noreferrer"
               target="_blank"
             >
-              <span className="material-symbols-outlined text-[16px]">
+              <span className="material-symbols-outlined text-[12px] sm:text-[16px]">
                 photo_camera
               </span>
-              <span className="font-label-sm text-label-sm font-semibold tracking-wider">
+              <span className="font-semibold tracking-wider truncate">
                 @Ibnhasyim02
               </span>
             </a>
           </div>
 
           {/* Bride Profile Card */}
-          <div className="group relative flex flex-col items-center text-center p-space-lg rounded-xl bg-surface-container-low shadow-[0_8px_30px_rgba(43,38,37,0.04)] transition-all duration-300 hover:shadow-[0_16px_45px_rgba(43,38,37,0.08)] border border-outline-variant/30">
-            <div className="absolute top-4 right-4 flex items-center gap-1 font-label-sm text-label-sm uppercase tracking-widest text-outline">
-              <span>Sang Mempelai Wanita</span>
-              <span className="material-symbols-outlined text-primary text-[14px]">
-                spa
+          <div className="group relative flex flex-col items-center text-center p-3 sm:p-5 md:p-space-lg rounded-2xl bg-surface-container-low shadow-[0_4px_20px_rgba(43,38,37,0.04)] sm:shadow-[0_8px_30px_rgba(43,38,37,0.04)] transition-all duration-300 hover:shadow-[0_16px_45px_rgba(43,38,37,0.08)] border border-outline-variant/30 justify-between">
+            <div className="w-full">
+              <div className="flex items-center justify-center gap-1 font-label-sm text-[9px] sm:text-label-sm uppercase tracking-wider text-outline mb-1.5 sm:mb-2">
+                <span>Mempelai Wanita</span>
+                <span className="material-symbols-outlined text-primary text-[12px] sm:text-[14px]">
+                  spa
+                </span>
+              </div>
+
+              {/* Foto Mempelai Wanita */}
+              <div className="w-full aspect-[3/4] max-w-[140px] sm:max-w-[220px] md:max-w-[260px] my-2 sm:my-space-md overflow-hidden rounded-t-[40px] sm:rounded-t-[80px] md:rounded-t-[100px] rounded-b-xl shadow-md bg-surface-container border border-primary-container/20 mx-auto">
+                <img
+                  alt="Putri Nabila Maelani"
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  src="/images/mempelai/putri.jpeg"
+                />
+              </div>
+
+              <h3 className="font-headline-md text-sm sm:text-lg md:text-headline-md text-on-surface font-semibold leading-snug mt-1 sm:mt-2">
+                Putri Nabila Maelani
+              </h3>
+              <span className="block text-[10px] sm:text-xs md:font-label-md md:text-label-md uppercase tracking-wider text-primary font-medium mt-0.5 sm:mt-1">
+                Putri Ketiga
               </span>
-            </div>
-
-            <div className="w-44 h-60 sm:w-56 sm:h-72 md:w-64 md:h-80 my-space-md overflow-hidden rounded-t-[80px] sm:rounded-t-[100px] rounded-b-xl shadow-md bg-surface-container border border-primary-container/20">
-              <img
-                alt="Putri Nabila Maelani"
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                src="/images/mempelai/putri.jpeg"
-              />
-            </div>
-
-            <h3 className="font-headline-md text-headline-md text-on-surface">
-              Putri Nabila Maelani
-            </h3>
-            <span className="font-label-md text-label-md uppercase tracking-wider text-primary font-medium mt-1">
-              Putri Ketiga
-            </span>
-            <div className="mt-space-md text-on-surface-variant font-body-md text-body-md">
-              <p className="text-outline uppercase font-label-sm text-label-sm tracking-wider mb-1">
-                Keluarga Terhormat
-              </p>
-              <p className="font-medium text-on-surface">
-                Bapak Supardi
-              </p>
-              <p className="font-medium text-on-surface">
-                &amp; Ibu Tukiyem (alm)
-              </p>
-              <p className="text-outline text-label-sm font-label-sm mt-1">
-                Cigugur, Kuningan
-              </p>
+              <div className="mt-2 sm:mt-space-md text-on-surface-variant text-[10px] sm:text-xs md:text-body-md leading-snug sm:leading-normal">
+                <p className="text-outline uppercase text-[8px] sm:text-[10px] tracking-wider mb-0.5 sm:mb-1">
+                  Keluarga Terhormat
+                </p>
+                <p className="font-medium text-on-surface">
+                  Bpk. Supardi
+                </p>
+                <p className="font-medium text-on-surface">
+                  &amp; Ibu Tukiyem (alm)
+                </p>
+                <p className="text-outline text-[9px] sm:text-label-sm mt-0.5 sm:mt-1">
+                  Cigugur, Kuningan
+                </p>
+              </div>
             </div>
 
             <a
-              className="mt-space-lg inline-flex items-center gap-space-xs px-space-md py-space-xs rounded-full bg-surface-container-highest text-on-surface hover:bg-primary-container hover:text-on-primary-container transition-colors shadow-sm"
+              className="mt-3 sm:mt-space-lg inline-flex items-center justify-center gap-1 sm:gap-space-xs px-2 sm:px-space-md py-1 sm:py-space-xs rounded-full bg-surface-container-highest text-on-surface hover:bg-primary-container hover:text-on-primary-container transition-colors shadow-sm text-[9px] sm:text-label-sm w-full max-w-[125px] sm:max-w-none"
               href="https://instagram.com"
               rel="noopener noreferrer"
               target="_blank"
             >
-              <span className="material-symbols-outlined text-[16px]">
+              <span className="material-symbols-outlined text-[12px] sm:text-[16px]">
                 photo_camera
               </span>
-              <span className="font-label-sm text-label-sm font-semibold tracking-wider">
+              <span className="font-semibold tracking-wider truncate">
                 @Nabillaaaputrii_
               </span>
             </a>
@@ -365,46 +371,46 @@ export default function Beranda({ onNavigate }) {
 
           {/* Hari Pelaksanaan Card - Posisikan di Tengah */}
           <div className="flex justify-center items-center w-full">
-            <div className="w-full max-w-xl p-space-lg sm:p-space-xl rounded-2xl bg-surface-container-lowest shadow-md flex flex-col justify-between border border-outline-variant/30 text-center">
+            <div className="w-full max-w-xl p-4 sm:p-space-xl rounded-2xl bg-surface-container-lowest shadow-md flex flex-col justify-between border border-outline-variant/30 text-center">
               <div>
-                <div className="inline-flex items-center justify-center gap-space-xs px-space-md py-1 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm font-semibold uppercase tracking-wider mb-space-md shadow-sm">
-                  <span className="material-symbols-outlined text-[16px]">
+                <div className="inline-flex items-center justify-center gap-space-xs px-3 sm:px-space-md py-1 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-[10px] sm:text-label-sm font-semibold uppercase tracking-wider mb-space-sm sm:mb-space-md shadow-sm">
+                  <span className="material-symbols-outlined text-[14px] sm:text-[16px]">
                     auto_stories
                   </span>
                   <span>Akad Nikah</span>
                 </div>
 
-                <h3 className="font-headline-md text-headline-md text-on-surface mb-space-xs text-center">
+                <h3 className="font-headline-md text-xl sm:text-headline-md text-on-surface mb-1 sm:mb-space-xs text-center">
                   Prosesi Ijab Kabul
                 </h3>
-                <p className="font-body-md text-body-md text-on-surface-variant mb-space-lg max-w-md mx-auto leading-relaxed text-center">
+                <p className="font-body-md text-xs sm:text-body-md text-on-surface-variant mb-4 sm:mb-space-lg max-w-md mx-auto leading-relaxed text-center px-1">
                   Khidmat prosesi sakral pengucapan janji setia di hadapan
                   penghulu dan keluarga inti.
                 </p>
 
-                <div className="bg-surface-container-low/70 rounded-xl p-space-md space-y-3 font-body-md text-body-md text-on-surface border border-outline-variant/20 max-w-md mx-auto">
-                  <div className="flex items-center justify-center gap-space-sm">
-                    <span className="material-symbols-outlined text-primary text-[20px]">
+                <div className="bg-surface-container-low/70 rounded-xl p-3 sm:p-space-md space-y-2.5 sm:space-y-3 font-body-md text-xs sm:text-body-md text-on-surface border border-outline-variant/20 max-w-md mx-auto text-left sm:text-center">
+                  <div className="flex items-center justify-center gap-2 sm:gap-space-sm">
+                    <span className="material-symbols-outlined text-primary text-[18px] sm:text-[20px] shrink-0">
                       schedule
                     </span>
                     <span className="font-semibold">08.00 – 10.30 WIB</span>
                   </div>
-                  <div className="flex items-center justify-center gap-space-sm">
-                    <span className="material-symbols-outlined text-primary text-[20px]">
+                  <div className="flex items-center justify-center gap-2 sm:gap-space-sm text-center">
+                    <span className="material-symbols-outlined text-primary text-[18px] sm:text-[20px] shrink-0">
                       location_on
                     </span>
-                    <span>
+                    <span className="leading-snug">
                       Kediaman Mempelai Wanita (Lingk. Manis RT.02 RW.01, Cigugur, Kuningan)
                     </span>
                   </div>
                 </div>
               </div>
 
-              <div className="mt-space-lg pt-space-md flex flex-col items-center gap-2 border-t border-outline-variant/30 text-center sm:flex-row sm:justify-between">
-                <span className="font-label-sm text-label-sm text-outline uppercase tracking-wider">
+              <div className="mt-4 sm:mt-space-lg pt-3 sm:pt-space-md flex flex-col items-center gap-1.5 sm:gap-2 border-t border-outline-variant/30 text-center sm:flex-row sm:justify-between">
+                <span className="font-label-sm text-[10px] sm:text-label-sm text-outline uppercase tracking-wider">
                   Busana: Sopan dan rapi
                 </span>
-                <span className="font-label-md text-label-md font-semibold text-primary">
+                <span className="font-label-md text-xs sm:text-label-md font-semibold text-primary">
                   Semua Tamu Undangan
                 </span>
               </div>
@@ -418,41 +424,41 @@ export default function Beranda({ onNavigate }) {
         id="lokasi-acara"
         className="w-full max-w-[1080px] mx-auto px-4 sm:px-margin py-10 sm:py-space-xl"
       >
-        <div className="text-center max-w-xl mx-auto mb-space-xl">
+        <div className="text-center max-w-xl mx-auto mb-6 sm:mb-space-xl">
           <div className="inline-flex items-center gap-space-sm mb-space-xs">
-            <span className="w-8 h-px bg-primary-container"></span>
-            <span className="font-label-sm text-label-sm uppercase tracking-[0.25em] text-primary font-semibold">
+            <span className="w-6 sm:w-8 h-px bg-primary-container"></span>
+            <span className="font-label-sm text-[10px] sm:text-label-sm uppercase tracking-[0.25em] text-primary font-semibold">
               Panduan Lokasi
             </span>
-            <span className="w-8 h-px bg-primary-container"></span>
+            <span className="w-6 sm:w-8 h-px bg-primary-container"></span>
           </div>
-          <h2 className="font-headline-lg text-headline-lg text-on-surface mt-space-xs">
+          <h2 className="font-headline-lg text-2xl sm:text-headline-lg text-on-surface mt-1 sm:mt-space-xs">
             Lokasi &amp; Peta Acara
           </h2>
-          <p className="font-body-md text-body-md text-on-surface-variant mt-space-sm leading-relaxed">
+          <p className="font-body-md text-xs sm:text-body-md text-on-surface-variant mt-1.5 sm:mt-space-sm leading-relaxed px-2">
             Suatu kehormatan bagi kami menyambut kehadiran Bapak/Ibu/Saudara/i di
             hari bahagia kami di kediaman mempelai berikut.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-space-lg items-stretch">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-space-lg items-stretch">
           {/* Venue Details */}
-          <div className="flex flex-col justify-between p-space-lg rounded-2xl bg-surface-container-low shadow-[0_8px_30px_rgba(43,38,37,0.04)] border border-outline-variant/30">
+          <div className="flex flex-col justify-between p-4 sm:p-space-lg rounded-2xl bg-surface-container-low shadow-[0_8px_30px_rgba(43,38,37,0.04)] border border-outline-variant/30">
             <div>
-              <div className="inline-flex items-center gap-space-xs px-space-sm py-0.5 rounded-full bg-primary-fixed text-on-primary-fixed font-label-sm text-label-sm uppercase tracking-wider mb-space-sm font-semibold">
-                <span className="material-symbols-outlined text-[16px]">
+              <div className="inline-flex items-center gap-space-xs px-2.5 sm:px-space-sm py-0.5 rounded-full bg-primary-fixed text-on-primary-fixed font-label-sm text-[10px] sm:text-label-sm uppercase tracking-wider mb-2 sm:mb-space-sm font-semibold">
+                <span className="material-symbols-outlined text-[14px] sm:text-[16px]">
                   pin_drop
                 </span>
                 <span>Titik Lokasi Acara</span>
               </div>
-              <h3 className="font-headline-sm text-headline-sm text-on-surface mb-space-xs">
+              <h3 className="font-headline-sm text-lg sm:text-headline-sm text-on-surface mb-0.5 sm:mb-space-xs">
                 Kediaman Mempelai Wanita
               </h3>
-              <p className="font-title-md text-title-md text-primary mb-space-sm">
+              <p className="font-title-md text-sm sm:text-title-md text-primary mb-2 sm:mb-space-sm">
                 Cigugur, Kabupaten Kuningan
               </p>
-              <p className="font-body-md text-body-md text-on-surface-variant leading-relaxed mb-space-md flex items-start gap-space-xs">
-                <span className="material-symbols-outlined text-outline text-[20px] shrink-0 mt-0.5">
+              <p className="font-body-md text-xs sm:text-body-md text-on-surface-variant leading-relaxed mb-3 sm:mb-space-md flex items-start gap-1.5 sm:gap-space-xs">
+                <span className="material-symbols-outlined text-outline text-[18px] sm:text-[20px] shrink-0 mt-0.5">
                   location_on
                 </span>
                 <span className="font-medium text-on-surface">
@@ -460,34 +466,34 @@ export default function Beranda({ onNavigate }) {
                 </span>
               </p>
 
-              <div className="pt-space-md border-t border-outline-variant/40 space-y-space-sm">
-                <div className="flex items-start gap-space-sm">
-                  <div className="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center shrink-0 mt-0.5">
-                    <span className="material-symbols-outlined text-primary text-[18px]">
+              <div className="pt-3 sm:pt-space-md border-t border-outline-variant/40 space-y-2.5 sm:space-y-space-sm">
+                <div className="flex items-start gap-2 sm:gap-space-sm">
+                  <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-surface-container flex items-center justify-center shrink-0 mt-0.5">
+                    <span className="material-symbols-outlined text-primary text-[16px] sm:text-[18px]">
                       directions_car
                     </span>
                   </div>
                   <div>
-                    <span className="font-label-md text-label-md font-semibold text-on-surface block">
+                    <span className="font-label-md text-xs sm:text-label-md font-semibold text-on-surface block">
                       Akses Kendaraan &amp; Parkir
                     </span>
-                    <span className="font-body-md text-body-md text-on-surface-variant">
+                    <span className="font-body-md text-xs sm:text-body-md text-on-surface-variant leading-relaxed">
                       Dapat diakses dengan mudah melalui jalan utama Cigugur. Tersedia area parkir kendaraan untuk roda dua dan roda empat.
                     </span>
                   </div>
                 </div>
 
-                <div className="flex items-start gap-space-sm">
-                  <div className="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center shrink-0 mt-0.5">
-                    <span className="material-symbols-outlined text-secondary text-[18px]">
+                <div className="flex items-start gap-2 sm:gap-space-sm">
+                  <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-surface-container flex items-center justify-center shrink-0 mt-0.5">
+                    <span className="material-symbols-outlined text-secondary text-[16px] sm:text-[18px]">
                       navigation
                     </span>
                   </div>
                   <div>
-                    <span className="font-label-md text-label-md font-semibold text-on-surface block">
+                    <span className="font-label-md text-xs sm:text-label-md font-semibold text-on-surface block">
                       Panduan Rute
                     </span>
-                    <span className="font-body-md text-body-md text-on-surface-variant">
+                    <span className="font-body-md text-xs sm:text-body-md text-on-surface-variant leading-relaxed">
                       Gunakan navigasi Google Maps atau Waze melalui tombol di bawah untuk panduan rute GPS langsung dan akurat.
                     </span>
                   </div>

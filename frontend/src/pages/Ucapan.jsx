@@ -224,18 +224,18 @@ export default function Ucapan() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-start">
           {/* Left Column: Form */}
           <div className="lg:col-span-6 flex flex-col gap-space-lg">
-            <div className="bg-surface-container-lowest p-space-lg rounded-xl shadow-[0_4px_30px_rgba(43,38,37,0.06)] relative overflow-hidden border border-outline-variant/30">
-              <div className="flex items-center justify-between pb-space-md border-b border-outline-variant/30">
+            <div className="bg-surface-container-lowest p-4 sm:p-space-lg rounded-xl shadow-[0_4px_30px_rgba(43,38,37,0.06)] relative overflow-hidden border border-outline-variant/30">
+              <div className="flex items-center justify-between pb-3 sm:pb-space-md border-b border-outline-variant/30">
                 <div className="flex flex-col">
-                  <span className="font-label-sm text-label-sm text-primary uppercase tracking-widest font-semibold">
+                  <span className="font-label-sm text-[10px] sm:text-label-sm text-primary uppercase tracking-widest font-semibold">
                     Untaian Doa Kasih
                   </span>
-                  <h2 className="font-headline-md text-headline-md text-on-surface">
+                  <h2 className="font-headline-md text-xl sm:text-headline-md text-on-surface">
                     Kirim Doa &amp; Ucapan Restu
                   </h2>
                 </div>
-                <div className="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-primary shadow-sm">
-                  <span className="material-symbols-outlined text-[20px]">
+                <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-surface-container flex items-center justify-center text-primary shadow-sm">
+                  <span className="material-symbols-outlined text-[18px] sm:text-[20px]">
                     edit_note
                   </span>
                 </div>
@@ -453,44 +453,44 @@ export default function Ucapan() {
       {/* Digital Wedding Gift / Amplop Digital Section */}
       <section id="amplop-digital" className="w-full bg-surface-container py-10 sm:py-space-xl border-t border-outline-variant/30">
         <div className="max-w-[1080px] mx-auto px-4 sm:px-margin flex flex-col items-center">
-          <div className="text-center max-w-xl mb-space-xl">
-            <span className="font-label-sm text-label-sm text-primary uppercase tracking-widest font-semibold block mb-1">
+          <div className="text-center max-w-xl mb-8 sm:mb-space-xl">
+            <span className="font-label-sm text-[10px] sm:text-label-sm text-primary uppercase tracking-widest font-semibold block mb-1">
               Ungkapan Tanda Kasih
             </span>
-            <h2 className="font-display-lg text-headline-lg text-on-surface mb-space-xs">
+            <h2 className="font-display-lg text-2xl sm:text-headline-lg text-on-surface mb-space-xs">
               Amplop Digital &amp; Hadiah
             </h2>
-            <p className="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+            <p className="font-body-md text-xs sm:text-body-md text-on-surface-variant leading-relaxed px-2">
               Doa restu Anda merupakan karunia paling berharga. Namun bila Anda berkehendak memberikan tanda kasih dalam wujud bingkisan ataupun amplop digital, kami menyediakan informasi berikut:
             </p>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-space-md w-full">
             {/* BCA Card */}
-            <div className="bg-surface-container-lowest p-space-lg rounded-xl shadow-[0_4px_24px_rgba(43,38,37,0.04)] flex flex-col justify-between relative overflow-hidden group border border-outline-variant/30">
+            <div className="bg-surface-container-lowest p-4 sm:p-space-lg rounded-xl shadow-[0_4px_24px_rgba(43,38,37,0.04)] flex flex-col justify-between relative overflow-hidden group border border-outline-variant/30">
               <div className="absolute -right-8 -bottom-8 w-32 h-32 bg-primary-fixed/20 rounded-full blur-2xl group-hover:bg-primary-fixed/40 transition-colors pointer-events-none"></div>
               <div>
-                <div className="flex items-center justify-between mb-space-md">
-                  <span className="font-title-md text-title-md font-bold text-primary tracking-widest">
+                <div className="flex items-center justify-between mb-3 sm:mb-space-md">
+                  <span className="font-title-md text-base sm:text-title-md font-bold text-primary tracking-widest">
                     BCA
                   </span>
-                  <span className="font-label-sm text-label-sm px-2.5 py-1 rounded-full bg-surface-container text-on-surface-variant uppercase tracking-wider font-semibold">
+                  <span className="font-label-sm text-[10px] sm:text-label-sm px-2.5 py-1 rounded-full bg-surface-container text-on-surface-variant uppercase tracking-wider font-semibold">
                     Transfer Bank
                   </span>
                 </div>
-                <span className="font-label-sm text-label-sm text-outline uppercase tracking-wider block">
+                <span className="font-label-sm text-[10px] sm:text-label-sm text-outline uppercase tracking-wider block">
                   Nomor Rekening
                 </span>
-                <div className="font-headline-sm text-headline-sm text-on-surface tracking-wider font-mono my-1">
+                <div className="font-headline-sm text-xl sm:text-headline-sm text-on-surface tracking-wider font-mono my-1">
                   2992 3143 63
                 </div>
-                <p className="font-body-md text-body-md text-on-surface-variant font-medium">
+                <p className="font-body-md text-xs sm:text-body-md text-on-surface-variant font-medium">
                   a.n. Putri Nabila Maelani
                 </p>
               </div>
-              <div className="pt-space-md mt-space-md flex flex-col gap-2">
+              <div className="pt-3 sm:pt-space-md mt-3 sm:mt-space-md flex flex-col gap-2">
                 <button
-                  className="w-full py-2 px-space-md rounded-lg bg-surface-container hover:bg-primary-container hover:text-on-primary-container text-on-surface font-label-md text-label-md uppercase tracking-wider font-semibold transition-all flex items-center justify-center gap-space-xs"
+                  className="w-full py-2 px-space-md rounded-lg bg-surface-container hover:bg-primary-container hover:text-on-primary-container text-on-surface font-label-md text-xs sm:text-label-md uppercase tracking-wider font-semibold transition-all flex items-center justify-center gap-space-xs"
                   onClick={() => copyToClipboard('2992314363', 'Nomor Rekening BCA')}
                   type="button"
                 >
@@ -500,7 +500,7 @@ export default function Ucapan() {
                   <span>Salin Nomor Rekening</span>
                 </button>
                 <button
-                  className="w-full py-2 px-space-md rounded-lg bg-primary-container/20 hover:bg-primary-container hover:text-on-primary-container text-primary font-label-md text-label-md uppercase tracking-wider font-semibold transition-all flex items-center justify-center gap-space-xs"
+                  className="w-full py-2 px-space-md rounded-lg bg-primary-container/20 hover:bg-primary-container hover:text-on-primary-container text-primary font-label-md text-xs sm:text-label-md uppercase tracking-wider font-semibold transition-all flex items-center justify-center gap-space-xs"
                   onClick={() => {
                     setGiftBank('BCA (a.n. Putri Nabila Maelani)');
                     setIsGiftModalOpen(true);
@@ -516,30 +516,30 @@ export default function Ucapan() {
             </div>
 
             {/* Seabank Card */}
-            <div className="bg-surface-container-lowest p-space-lg rounded-xl shadow-[0_4px_24px_rgba(43,38,37,0.04)] flex flex-col justify-between relative overflow-hidden group border border-outline-variant/30">
+            <div className="bg-surface-container-lowest p-4 sm:p-space-lg rounded-xl shadow-[0_4px_24px_rgba(43,38,37,0.04)] flex flex-col justify-between relative overflow-hidden group border border-outline-variant/30">
               <div className="absolute -right-8 -bottom-8 w-32 h-32 bg-secondary-fixed/30 rounded-full blur-2xl group-hover:bg-secondary-fixed/50 transition-colors pointer-events-none"></div>
               <div>
-                <div className="flex items-center justify-between mb-space-md">
-                  <span className="font-title-md text-title-md font-bold text-secondary tracking-widest">
+                <div className="flex items-center justify-between mb-3 sm:mb-space-md">
+                  <span className="font-title-md text-base sm:text-title-md font-bold text-secondary tracking-widest">
                     SEABANK
                   </span>
-                  <span className="font-label-sm text-label-sm px-2.5 py-1 rounded-full bg-surface-container text-on-surface-variant uppercase tracking-wider font-semibold">
+                  <span className="font-label-sm text-[10px] sm:text-label-sm px-2.5 py-1 rounded-full bg-surface-container text-on-surface-variant uppercase tracking-wider font-semibold">
                     Transfer Bank
                   </span>
                 </div>
-                <span className="font-label-sm text-label-sm text-outline uppercase tracking-wider block">
+                <span className="font-label-sm text-[10px] sm:text-label-sm text-outline uppercase tracking-wider block">
                   Nomor Rekening
                 </span>
-                <div className="font-headline-sm text-headline-sm text-on-surface tracking-wider font-mono my-1">
+                <div className="font-headline-sm text-xl sm:text-headline-sm text-on-surface tracking-wider font-mono my-1">
                   9011 0973 6738
                 </div>
-                <p className="font-body-md text-body-md text-on-surface-variant font-medium">
+                <p className="font-body-md text-xs sm:text-body-md text-on-surface-variant font-medium">
                   a.n. Putri Nabila Maelani
                 </p>
               </div>
-              <div className="pt-space-md mt-space-md flex flex-col gap-2">
+              <div className="pt-3 sm:pt-space-md mt-3 sm:mt-space-md flex flex-col gap-2">
                 <button
-                  className="w-full py-2 px-space-md rounded-lg bg-surface-container hover:bg-primary-container hover:text-on-primary-container text-on-surface font-label-md text-label-md uppercase tracking-wider font-semibold transition-all flex items-center justify-center gap-space-xs"
+                  className="w-full py-2 px-space-md rounded-lg bg-surface-container hover:bg-primary-container hover:text-on-primary-container text-on-surface font-label-md text-xs sm:text-label-md uppercase tracking-wider font-semibold transition-all flex items-center justify-center gap-space-xs"
                   onClick={() => copyToClipboard('901109736738', 'Nomor Rekening Seabank')}
                   type="button"
                 >
@@ -549,7 +549,7 @@ export default function Ucapan() {
                   <span>Salin Nomor Rekening</span>
                 </button>
                 <button
-                  className="w-full py-2 px-space-md rounded-lg bg-secondary-fixed/30 hover:bg-secondary hover:text-white text-secondary font-label-md text-label-md uppercase tracking-wider font-semibold transition-all flex items-center justify-center gap-space-xs"
+                  className="w-full py-2 px-space-md rounded-lg bg-secondary-fixed/30 hover:bg-secondary hover:text-white text-secondary font-label-md text-xs sm:text-label-md uppercase tracking-wider font-semibold transition-all flex items-center justify-center gap-space-xs"
                   onClick={() => {
                     setGiftBank('Seabank (a.n. Putri Nabila Maelani)');
                     setIsGiftModalOpen(true);
@@ -565,27 +565,27 @@ export default function Ucapan() {
             </div>
 
             {/* Physical Gift Address */}
-            <div className="bg-surface-container-lowest p-space-lg rounded-xl shadow-[0_4px_24px_rgba(43,38,37,0.04)] flex flex-col justify-between relative overflow-hidden group sm:col-span-2 lg:col-span-1 border border-outline-variant/30">
+            <div className="bg-surface-container-lowest p-4 sm:p-space-lg rounded-xl shadow-[0_4px_24px_rgba(43,38,37,0.04)] flex flex-col justify-between relative overflow-hidden group sm:col-span-2 lg:col-span-1 border border-outline-variant/30">
               <div className="absolute -right-8 -bottom-8 w-32 h-32 bg-tertiary-fixed/30 rounded-full blur-2xl group-hover:bg-tertiary-fixed/50 transition-colors pointer-events-none"></div>
               <div>
-                <div className="flex items-center justify-between mb-space-md">
-                  <span className="font-title-md text-title-md font-bold text-tertiary tracking-widest">
+                <div className="flex items-center justify-between mb-3 sm:mb-space-md">
+                  <span className="font-title-md text-base sm:text-title-md font-bold text-tertiary tracking-widest">
                     KADO FISIK
                   </span>
-                  <span className="font-label-sm text-label-sm px-2.5 py-1 rounded-full bg-surface-container text-on-surface-variant uppercase tracking-wider font-semibold">
+                  <span className="font-label-sm text-[10px] sm:text-label-sm px-2.5 py-1 rounded-full bg-surface-container text-on-surface-variant uppercase tracking-wider font-semibold">
                     Kirim ke Rumah
                   </span>
                 </div>
-                <span className="font-label-sm text-label-sm text-outline uppercase tracking-wider block">
+                <span className="font-label-sm text-[10px] sm:text-label-sm text-outline uppercase tracking-wider block">
                   Alamat Kediaman
                 </span>
-                <p className="font-body-md text-body-md text-on-surface font-medium mt-1 leading-snug">
+                <p className="font-body-md text-xs sm:text-body-md text-on-surface font-medium mt-1 leading-snug">
                   Lingk. Manis RT.02 RW.01 Kel. Cigugur, Kec. Cigugur, Kab. Kuningan, Jawa Barat 45552 (Up: Rizal &amp; Putri)
                 </p>
               </div>
-              <div className="pt-space-md mt-space-md">
+              <div className="pt-3 sm:pt-space-md mt-3 sm:mt-space-md">
                 <button
-                  className="w-full py-2 px-space-md rounded-lg bg-surface-container hover:bg-primary-container hover:text-on-primary-container text-on-surface font-label-md text-label-md uppercase tracking-wider font-semibold transition-all flex items-center justify-center gap-space-xs"
+                  className="w-full py-2 px-space-md rounded-lg bg-surface-container hover:bg-primary-container hover:text-on-primary-container text-on-surface font-label-md text-xs sm:text-label-md uppercase tracking-wider font-semibold transition-all flex items-center justify-center gap-space-xs"
                   onClick={() =>
                     copyToClipboard(
                       'Lingk. Manis RT.02 RW.01 Kel. Cigugur, Kec. Cigugur, Kab. Kuningan, Jawa Barat 45552 (Up: Rizal & Putri)',
