@@ -182,27 +182,27 @@ export default function Gallery({ onNavigate }) {
                 </div>
 
                 <div className="w-full md:w-1/2 md:pl-space-lg">
-                  <div className="relative aspect-[4/3] rounded-xl overflow-hidden shadow-md bg-surface-container border border-outline-variant/30">
+                  <div className="relative aspect-[4/5] max-w-[340px] sm:max-w-md w-full mx-auto md:mx-0 rounded-2xl overflow-hidden shadow-md bg-surface-container border border-outline-variant/30 group">
                     <img
                       alt="Pertama Bertemu di Lapang Tenis Dekat Mushola"
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
                       src="/images/gallery/2.jpeg"
                     />
                   </div>
                 </div>
               </div>
 
-              {/* Event 2: Akhir 2024 */}
+              {/* Event 2: Februari 2025 */}
               <div className="relative flex flex-col md:flex-row-reverse items-center gap-4 sm:gap-space-lg">
                 <div className="w-full md:w-1/2 md:pl-space-lg text-left">
                   <span className="font-headline-sm text-headline-sm text-primary font-bold">
-                    Akhir 2024
+                    Februari 2025
                   </span>
                   <h4 className="font-headline-md text-headline-md text-on-surface mt-1">
                     Merajut Komitmen
                   </h4>
                   <p className="font-body-md text-body-md text-on-surface-variant mt-space-xs leading-relaxed">
-                    Seiring berjalannya waktu, kedekatan yang terjalin dengan tulus menumbuhkan rasa saling percaya. Dari percakapan hangat dan kebersamaan yang penuh makna, kami bersepakat untuk saling menjaga, tumbuh, dan menjadi rumah bagi kepulangan satu sama lain.
+                    Seiring berjalannya waktu, kedekatan yang terjalin dengan tulus menumbuhkan rasa saling percaya. Pada Februari 2025, kami bersepakat melangkah dalam ikatan yang lebih bermakna—saling menjaga, melengkapi, dan menjadi rumah bagi kepulangan satu sama lain.
                   </p>
                   <div className="flex items-center gap-space-xs mt-space-sm text-outline font-label-sm text-label-sm uppercase tracking-wider">
                     <span className="material-symbols-outlined text-[16px] text-primary">
@@ -217,27 +217,27 @@ export default function Gallery({ onNavigate }) {
                 </div>
 
                 <div className="w-full md:w-1/2 md:pr-space-lg">
-                  <div className="relative aspect-[4/3] rounded-xl overflow-hidden shadow-md bg-surface-container border border-outline-variant/30">
+                  <div className="relative aspect-[4/5] max-w-[340px] sm:max-w-md w-full mx-auto md:mx-0 rounded-2xl overflow-hidden shadow-md bg-surface-container border border-outline-variant/30 group">
                     <img
                       alt="Merajut Komitmen"
-                      className="w-full h-full object-cover"
-                      src="/images/gallery/5.jpeg"
+                      className="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
+                      src="/images/gallery/4.jpeg"
                     />
                   </div>
                 </div>
               </div>
 
-              {/* Event 3: 2025 */}
+              {/* Event 3: September 2026 */}
               <div className="relative flex flex-col md:flex-row items-center gap-4 sm:gap-space-lg">
                 <div className="w-full md:w-1/2 md:pr-space-lg text-left md:text-right">
                   <span className="font-headline-sm text-headline-sm text-primary font-bold">
-                    2025
+                    September 2026
                   </span>
                   <h4 className="font-headline-md text-headline-md text-on-surface mt-1">
                     Hari Lamaran
                   </h4>
                   <p className="font-body-md text-body-md text-on-surface-variant mt-space-xs leading-relaxed">
-                    Di hadapan kedua orang tua dan keluarga besar tercinta, ikrar keseriusan diwujudkan dalam sematan cincin pengikat janji. Hari penuh haru di mana dua keluarga besar bersatu dalam doa yang sama untuk kelancaran niat suci kami.
+                    Di bulan September 2026 yang penuh berkah, dengan langkah mantap dan niat suci di dada, Rizal tiba di kediaman Putri untuk meminang sang pujaan hati. Di hadapan kedua orang tua dan keluarga besar tercinta, sebuah ikrar suci terucap manis—menautkan dua insan dan dua keluarga menuju gerbang pernikahan.
                   </p>
                   <div className="flex md:justify-end items-center gap-space-xs mt-space-sm text-outline font-label-sm text-label-sm uppercase tracking-wider">
                     <span className="material-symbols-outlined text-[16px] text-primary">
@@ -252,27 +252,27 @@ export default function Gallery({ onNavigate }) {
                 </div>
 
                 <div className="w-full md:w-1/2 md:pl-space-lg">
-                  <div className="relative aspect-[4/3] rounded-xl overflow-hidden shadow-md bg-surface-container border border-outline-variant/30">
+                  <div className="relative aspect-[4/5] max-w-[340px] sm:max-w-md w-full mx-auto md:mx-0 rounded-2xl overflow-hidden shadow-md bg-surface-container border border-outline-variant/30 group">
                     <img
                       alt="Hari Lamaran"
-                      className="w-full h-full object-cover"
-                      src="/images/gallery/3.jpeg"
+                      className="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
+                      src="/images/gallery/5.jpeg"
                     />
                   </div>
                 </div>
               </div>
 
-              {/* Event 4: 20 November 2026 */}
+              {/* Event 4: November 2026 */}
               <div className="relative flex flex-col md:flex-row-reverse items-center gap-4 sm:gap-space-lg">
                 <div className="w-full md:w-1/2 md:pl-space-lg text-left">
                   <span className="font-headline-sm text-headline-sm text-primary font-bold">
-                    20 November 2026
+                    November 2026
                   </span>
                   <h4 className="font-headline-md text-headline-md text-on-surface mt-1">
                     Menuju Pelaminan
                   </h4>
                   <p className="font-body-md text-body-md text-on-surface-variant mt-space-xs leading-relaxed">
-                    Babak puncak dari kerinduan panjang kami. Dengan restu semesta dan ketulusan doa Anda semua, kami bersiap melangkah mengikat janji seumur hidup di hadapan Sang Maha Kuasa.
+                    Babak puncak dari kerinduan dan perjalanan cinta kami. Dengan restu semesta dan ketulusan doa Anda semua, kami bersiap melangkah mengikat janji seumur hidup di hadapan Sang Maha Kuasa dalam ikrar suci pernikahan.
                   </p>
                   <div className="flex items-center gap-space-xs mt-space-sm text-outline font-label-sm text-label-sm uppercase tracking-wider">
                     <span className="material-symbols-outlined text-[16px] text-primary">
@@ -289,11 +289,11 @@ export default function Gallery({ onNavigate }) {
                 </div>
 
                 <div className="w-full md:w-1/2 md:pr-space-lg">
-                  <div className="relative aspect-[4/3] rounded-xl overflow-hidden shadow-md bg-surface-container border border-outline-variant/30">
+                  <div className="relative aspect-[4/5] max-w-[340px] sm:max-w-md w-full mx-auto md:mx-0 rounded-2xl overflow-hidden shadow-md bg-surface-container border border-outline-variant/30 group">
                     <img
                       alt="Menuju Pelaminan"
-                      className="w-full h-full object-cover"
-                      src="/images/gallery/6.jpeg"
+                      className="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
+                      src="/images/gallery/3.jpeg"
                     />
                   </div>
                 </div>
