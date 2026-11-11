@@ -10,18 +10,18 @@ export default function Footer() {
           </span>
         </div>
         <h4 className="font-headline-md text-headline-md text-on-surface mb-space-sm">
-          Rizal Pratama &amp; Putri Anindya
+          Rizal Rofiqallah S.Pd. &amp; Putri Nabila Maelani
         </h4>
         <p className="font-body-md text-body-md text-on-surface-variant max-w-xl mx-auto mb-space-lg leading-relaxed">
           Merupakan sebuah kehormatan dan kebahagiaan yang mendalam bagi kami beserta segenap keluarga besar apabila Bapak/Ibu/Saudara/i berkenan hadir serta memanjatkan doa restu pada hari ikrar suci kami.
         </p>
         <div className="flex flex-wrap justify-center items-center gap-space-lg mb-space-xl font-label-md text-label-md uppercase text-outline tracking-widest">
-          <span>Keluarga Besar Bpk. Handoko Bramantyo</span>
+          <span>Keluarga Besar Bpk. Mohammad Hasyim (alm)</span>
           <span className="text-primary-container">•</span>
-          <span>Keluarga Besar Bpk. Suryo Daniswara</span>
+          <span>Keluarga Besar Bpk. Supardi</span>
         </div>
         <div className="font-label-sm text-label-sm text-outline uppercase tracking-widest">
-          © 2025 Rizal &amp; Putri Matrimony. Dirancang Penuh Kasih.
+          © 2026 Rizal &amp; Putri Matrimony. Dirancang Penuh Kasih.
         </div>
       </div>
     </footer>

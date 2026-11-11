@@ -37,6 +37,22 @@ export default function Gallery({ onNavigate }) {
       title: 'Harmoni Dua Jiwa',
       alt: 'Foto Momen Bahagia Rizal & Putri 4',
     },
+    {
+      id: 5,
+      category: 'prewed',
+      src: '/images/gallery/5.jpeg',
+      tag: 'Pre-Wedding • Ikrar Kasih',
+      title: 'Dua Hati Satu Tujuan',
+      alt: 'Foto Pre-Wedding Rizal & Putri 5',
+    },
+    {
+      id: 6,
+      category: 'momen',
+      src: '/images/gallery/6.jpeg',
+      tag: 'Momen Bahagia • Senandung Cinta',
+      title: 'Meniti Hari Bahagia',
+      alt: 'Foto Momen Bahagia Rizal & Putri 6',
+    },
   ];
 
   const filteredItems = galleryItems.filter(
@@ -88,8 +104,8 @@ export default function Gallery({ onNavigate }) {
             </div>
           </div>
 
-          {/* Gallery Grid 4 Foto */}
-          <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-space-md items-stretch" id="gallery-grid">
+          {/* Gallery Grid 6 Foto */}
+          <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-space-md items-stretch" id="gallery-grid">
             {filteredItems.map((item) => (
               <div
                 key={item.id}
@@ -141,23 +157,23 @@ export default function Gallery({ onNavigate }) {
             <div className="hidden md:block absolute left-1/2 top-4 bottom-8 -translate-x-1/2 w-[1px] bg-outline-variant"></div>
 
             <div className="flex flex-col gap-space-xl">
-              {/* Event 1: 2020 */}
+              {/* Event 1: Agustus 2024 */}
               <div className="relative flex flex-col md:flex-row items-center gap-4 sm:gap-space-lg">
                 <div className="w-full md:w-1/2 md:pr-space-lg text-left md:text-right">
                   <span className="font-headline-sm text-headline-sm text-primary font-bold">
-                    2020
+                    Agustus 2024
                   </span>
                   <h4 className="font-headline-md text-headline-md text-on-surface mt-1">
                     Pertama Bertemu
                   </h4>
                   <p className="font-body-md text-body-md text-on-surface-variant mt-space-xs leading-relaxed">
-                    Di sebuah simposium arsitektur di Bandung, pandangan kami pertama kali bertemu. Berawal dari diskusi tentang estetika ruang dan harmoni garis, kami menemukan ruang nyaman dalam pikiran masing-masing.
+                    Di suatu sore yang tenang di bulan Agustus 2024, di lapang tenis dekat mushola, takdir mempertemukan pandangan kami untuk pertama kalinya. Sebuah tatapan sederhana yang seketika meluluhkan hati—cinta pada pandangan pertama yang begitu hangat, berbisik lembut bahwa dialah sosok yang selama ini dinanti.
                   </p>
                   <div className="flex md:justify-end items-center gap-space-xs mt-space-sm text-outline font-label-sm text-label-sm uppercase tracking-wider">
-                    <span className="material-symbols-outlined text-[16px]">
+                    <span className="material-symbols-outlined text-[16px] text-primary">
                       location_on
                     </span>
-                    <span>Bandung Art Center</span>
+                    <span>Lapang Tenis Dekat Mushola</span>
                   </div>
                 </div>
 
@@ -168,31 +184,31 @@ export default function Gallery({ onNavigate }) {
                 <div className="w-full md:w-1/2 md:pl-space-lg">
                   <div className="relative aspect-[4/3] rounded-xl overflow-hidden shadow-md bg-surface-container border border-outline-variant/30">
                     <img
-                      alt="Pertama Bertemu di Bandung Art Center"
+                      alt="Pertama Bertemu di Lapang Tenis Dekat Mushola"
                       className="w-full h-full object-cover"
-                      src="https://lh3.googleusercontent.com/aida-public/AB6AXuArpgu45s_tdbEapM6ddXkpBr1iQSNXPdJlsY-mKov4zcLeCDR3k7XWw2dWBv9NevOH9LjVWgNEoDZZP8QLpLRiNQA8s8C4FQB8RD5Ndqqojl_14guD2gCutBWbt7i6mV-Jnzm92sqBEwhV6FyDik5ex9xewhjie94nbKN3u4IYfWg5vSZ2AXxhDoYgpL4t4rU8padEoLxESUB4WVX0rkKRI1VpQZQcaXMO9hOyMH3xnfYSqpmkmuXH"
+                      src="/images/gallery/2.jpeg"
                     />
                   </div>
                 </div>
               </div>
 
-              {/* Event 2: 2022 */}
+              {/* Event 2: Akhir 2024 */}
               <div className="relative flex flex-col md:flex-row-reverse items-center gap-4 sm:gap-space-lg">
                 <div className="w-full md:w-1/2 md:pl-space-lg text-left">
                   <span className="font-headline-sm text-headline-sm text-primary font-bold">
-                    2022
+                    Akhir 2024
                   </span>
                   <h4 className="font-headline-md text-headline-md text-on-surface mt-1">
-                    Menjalin Hubungan
+                    Merajut Komitmen
                   </h4>
                   <p className="font-body-md text-body-md text-on-surface-variant mt-space-xs leading-relaxed">
-                    Dua tahun berselang dalam ikatan persahabatan yang tulus, kami menyadari bahwa cinta hadir tanpa suara keras. Kami bersepakat untuk saling menjaga, tumbuh, dan menjadi rumah bagi kepulangan satu sama lain.
+                    Seiring berjalannya waktu, kedekatan yang terjalin dengan tulus menumbuhkan rasa saling percaya. Dari percakapan hangat dan kebersamaan yang penuh makna, kami bersepakat untuk saling menjaga, tumbuh, dan menjadi rumah bagi kepulangan satu sama lain.
                   </p>
                   <div className="flex items-center gap-space-xs mt-space-sm text-outline font-label-sm text-label-sm uppercase tracking-wider">
-                    <span className="material-symbols-outlined text-[16px]">
+                    <span className="material-symbols-outlined text-[16px] text-primary">
                       favorite
                     </span>
-                    <span>Komitmen Berdua</span>
+                    <span>Komitmen Kasih Berdua</span>
                   </div>
                 </div>
 
@@ -203,9 +219,9 @@ export default function Gallery({ onNavigate }) {
                 <div className="w-full md:w-1/2 md:pr-space-lg">
                   <div className="relative aspect-[4/3] rounded-xl overflow-hidden shadow-md bg-surface-container border border-outline-variant/30">
                     <img
-                      alt="Menjalin Hubungan"
+                      alt="Merajut Komitmen"
                       className="w-full h-full object-cover"
-                      src="https://lh3.googleusercontent.com/aida-public/AB6AXuBigANAynkxy_0UqCrZEw2oJ3DE8fYMvi4qQwvU-bvfYHrW_Cldz_dY-5H_lPGOtOi_IAJcsRR86hoS_OY8PJF67speinUs5MQiUHw4TCyJWLXMSxG54F_wAaUHYmPbJ8sDfLHqoP32KSrvirV2obj51Itu71FwdOX7JzqN4dSACoe4TgUvkFY-soz2WposWCFKGVqtgAMZoj1jnuhhxiNiLIrg1GaygmEPsNqxPJlrGiRPnNLfvTut"
+                      src="/images/gallery/5.jpeg"
                     />
                   </div>
                 </div>
@@ -221,13 +237,13 @@ export default function Gallery({ onNavigate }) {
                     Hari Lamaran
                   </h4>
                   <p className="font-body-md text-body-md text-on-surface-variant mt-space-xs leading-relaxed">
-                    Di hadapan kedua orang tua dan keluarga besar tercinta, Rizal menyematkan cincin pengikat janji. Hari penuh haru di mana dua keluarga besar bersatu dalam doa yang sama untuk kelancaran niat suci kami.
+                    Di hadapan kedua orang tua dan keluarga besar tercinta, ikrar keseriusan diwujudkan dalam sematan cincin pengikat janji. Hari penuh haru di mana dua keluarga besar bersatu dalam doa yang sama untuk kelancaran niat suci kami.
                   </p>
                   <div className="flex md:justify-end items-center gap-space-xs mt-space-sm text-outline font-label-sm text-label-sm uppercase tracking-wider">
-                    <span className="material-symbols-outlined text-[16px]">
+                    <span className="material-symbols-outlined text-[16px] text-primary">
                       diamond
                     </span>
-                    <span>Kediaman Keluarga Daniswara</span>
+                    <span>Kediaman Mempelai Wanita, Cigugur</span>
                   </div>
                 </div>
 
@@ -240,17 +256,17 @@ export default function Gallery({ onNavigate }) {
                     <img
                       alt="Hari Lamaran"
                       className="w-full h-full object-cover"
-                      src="https://lh3.googleusercontent.com/aida-public/AB6AXuDvuk2pT6CD4NGsXB0TS_FUZS-lkkXC1YH5pnuurbkx2zQsVw8rbRvXWe2oSZkURP3FWXgWQEvor86bqro1a3UXWqOA7295qIn7wA8OfZKGqZRTs6Gy6V1HaUZfZwcBA7ASEkEFtS2CNscoJsbHwvSkv0slgBucqwKL-aR-p6vkDiBWOUiFT-Vlbujj8DVWPM7vwnxvkcwHixtmhFNZx46z4Ww1KDhH2HOUc_CjkK1MR5yQgN010vXE"
+                      src="/images/gallery/3.jpeg"
                     />
                   </div>
                 </div>
               </div>
 
-              {/* Event 4: 2026 */}
+              {/* Event 4: 20 November 2026 */}
               <div className="relative flex flex-col md:flex-row-reverse items-center gap-4 sm:gap-space-lg">
                 <div className="w-full md:w-1/2 md:pl-space-lg text-left">
                   <span className="font-headline-sm text-headline-sm text-primary font-bold">
-                    2026
+                    20 November 2026
                   </span>
                   <h4 className="font-headline-md text-headline-md text-on-surface mt-1">
                     Menuju Pelaminan
@@ -259,10 +275,10 @@ export default function Gallery({ onNavigate }) {
                     Babak puncak dari kerinduan panjang kami. Dengan restu semesta dan ketulusan doa Anda semua, kami bersiap melangkah mengikat janji seumur hidup di hadapan Sang Maha Kuasa.
                   </p>
                   <div className="flex items-center gap-space-xs mt-space-sm text-outline font-label-sm text-label-sm uppercase tracking-wider">
-                    <span className="material-symbols-outlined text-[16px]">
+                    <span className="material-symbols-outlined text-[16px] text-primary">
                       celebration
                     </span>
-                    <span>The Grand Matrimony</span>
+                    <span>Walimatul Ursy, Cigugur, Kuningan</span>
                   </div>
                 </div>
 
@@ -277,7 +293,7 @@ export default function Gallery({ onNavigate }) {
                     <img
                       alt="Menuju Pelaminan"
                       className="w-full h-full object-cover"
-                      src="https://lh3.googleusercontent.com/aida-public/AB6AXuDnBfeLpFJsQKMDeOHK8K7g6lf7yFCxh1B6ftf1MpApBEa3iSm61ftvjnhbTsUcIHX0zI9tL1XOssu26dC-_kxpZsw5Hkc8v5NhCi4SoVLcp_j4-BychU7KeO4elDGmc2bKCh2kgUEUfAm421xI0xyYR4e9VM10HIclK6BvIstDJBTCktYc3P7zl-4ejujLSuG5L8ZTm2uEnfonO3mLDyP4pleNrneL-3JRuD4dDmCq7FY5mPtD4nP_"
+                      src="/images/gallery/6.jpeg"
                     />
                   </div>
                 </div>

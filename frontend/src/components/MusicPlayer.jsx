@@ -7,11 +7,11 @@ export default function MusicPlayer({ isPlaying: externalIsPlaying, onToggle }) 
   const isPlaying =
     externalIsPlaying !== undefined ? externalIsPlaying : internalIsPlaying;
 
-  // Path lagu pernikahan: Tiara Andini & Arsy Widianto - Lagu Pernikahan Kita
-  const primaryAudioSrc = encodeURI(
-    '/audio/Tiara Andini Arsy Widianto - Lagu Pernikahan Kita.mp3'
+  // Path lagu pernikahan: Westlife - Nothing's Gonna Change My Love For You
+  const primaryAudioSrc = '/audio/wedding-song.mp3';
+  const fallbackLocalSrc = encodeURI(
+    '/audio/West_Life_-_Nothing_Gonna_Change_My_Love_For_You_posvyacshaetsya_moim_lyubimym_bleskam_i_im_podobnym_sok_(mp3.pm).mp3'
   );
-  const fallbackLocalSrc = '/audio/wedding-song.mp3';
   const onlineFallbackSrc =
     'https://cdn.pixabay.com/download/audio/2022/05/16/audio_c89b703a89.mp3?filename=romantic-wedding-112191.mp3';
 
@@ -76,14 +76,14 @@ export default function MusicPlayer({ isPlaying: externalIsPlaying, onToggle }) 
           className="hidden sm:flex flex-col pr-space-xs text-left cursor-pointer"
           onClick={togglePlay}
         >
-          <span className="font-label-sm text-label-sm font-semibold text-on-surface line-clamp-1 max-w-[180px]">
-            Lagu Pernikahan Kita
+          <span className="font-label-sm text-label-sm font-semibold text-on-surface line-clamp-1 max-w-[200px]">
+            Nothing's Gonna Change My Love
           </span>
           <span className="font-label-sm text-[11px] text-outline flex items-center gap-1.5">
             {isPlaying ? (
               <>
                 <span className="w-1.5 h-1.5 rounded-full bg-secondary animate-ping"></span>
-                <span className="text-primary font-medium">Tiara Andini &amp; Arsy Widianto</span>
+                <span className="text-primary font-medium">Westlife</span>
               </>
             ) : (
               <span>Ketuk untuk Putar</span>
