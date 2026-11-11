@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { getWishes, createWish } from '../services/api';
+import { subscribeToWishes, createFirestoreWish } from '../services/firebase';
 
 export default function Ucapan() {
   const [selectedCategory, setSelectedCategory] = useState('Keluarga');
@@ -13,7 +13,7 @@ export default function Ucapan() {
   const [totalWishesCount, setTotalWishesCount] = useState(0);
 
   const [wishes, setWishes] = useState(() => {
-    // Muat data awal langsung dari localStorage agar saat refresh data tetap ada
+    // Muat data awal langsung dari localStorage agar saat refresh/offline data tetap ada
     if (typeof window !== 'undefined') {
       try {
         const saved = localStorage.getItem('wedding_wishes_storage');
@@ -29,55 +29,41 @@ export default function Ucapan() {
   });
   const [isBackendConnected, setIsBackendConnected] = useState(false);
 
-  // Ambil data ucapan dari backend database saat komponen dimuat & sinkronkan
+  // Berlangganan (listen) data ucapan dari Firebase Firestore secara real-time
   useEffect(() => {
-    let isMounted = true;
+    setIsLoading(true);
 
-    getWishes()
-      .then((res) => {
-        if (!isMounted) return;
+    const unsubscribe = subscribeToWishes(
+      (realtimeWishes) => {
         setIsBackendConnected(true);
-        if (res && res.data) {
-          // Ambil ucapan lokal yang mungkin belum ada di backend
-          let localWishes = [];
-          try {
-            const saved = localStorage.getItem('wedding_wishes_storage');
-            if (saved) localWishes = JSON.parse(saved) || [];
-          } catch (e) {}
-
-          // Gabungkan data backend dan lokal tanpa duplikasi berdasarkan teks & nama
-          const backendNames = new Set(res.data.map((w) => `${w.name}__${w.message}`));
-          const unsyncedLocal = localWishes.filter(
-            (lw) => !backendNames.has(`${lw.name}__${lw.message}`)
-          );
-
-          const combined = [...unsyncedLocal, ...res.data];
-          setWishes(combined);
-          setTotalWishesCount(res.stats?.totalWishes ? Math.max(res.stats.totalWishes, combined.length) : combined.length);
-          localStorage.setItem('wedding_wishes_storage', JSON.stringify(combined));
-        }
-      })
-      .catch((err) => {
-        if (!isMounted) return;
+        setWishes(realtimeWishes);
+        setTotalWishesCount(realtimeWishes.length);
+        setIsLoading(false);
+        try {
+          localStorage.setItem('wedding_wishes_storage', JSON.stringify(realtimeWishes));
+        } catch (e) {}
+      },
+      (err) => {
+        console.warn('Koneksi Firebase offline, menggunakan cache lokal:', err);
         setIsBackendConnected(false);
-        console.info('Backend API offline, menggunakan penyimpanan persisten lokal:', err.message);
-        // Pastikan totalWishesCount sesuai dengan data lokal yang ada
+        setIsLoading(false);
         try {
           const saved = localStorage.getItem('wedding_wishes_storage');
           if (saved) {
             const parsed = JSON.parse(saved);
             if (Array.isArray(parsed)) {
+              setWishes(parsed);
               setTotalWishesCount(parsed.length);
             }
           }
         } catch (e) {}
-      })
-      .finally(() => {
-        if (isMounted) setIsLoading(false);
-      });
+      }
+    );
 
     return () => {
-      isMounted = false;
+      if (typeof unsubscribe === 'function') {
+        unsubscribe();
+      }
     };
   }, []);
 
@@ -105,7 +91,7 @@ export default function Ucapan() {
     }
   };
 
-  // Submit form ucapan & doa ke backend
+  // Submit form ucapan & doa ke Firebase Firestore
   const handleFormSubmit = async (e) => {
     e.preventDefault();
     if (!name.trim() || !message.trim()) return;
@@ -121,29 +107,15 @@ export default function Ucapan() {
     };
 
     try {
-      const res = await createWish(payload);
-      if (res && res.data) {
-        setIsBackendConnected(true);
-        setWishes((prev) => {
-          const updated = [res.data, ...prev.filter((w) => w.id !== res.data.id)];
-          try {
-            localStorage.setItem('wedding_wishes_storage', JSON.stringify(updated));
-          } catch (e) {}
-          return updated;
-        });
-        if (res.stats && res.stats.totalWishes) {
-          setTotalWishesCount(res.stats.totalWishes);
-        } else {
-          setTotalWishesCount((prev) => prev + 1);
-        }
-      }
+      await createFirestoreWish(payload);
+      setIsBackendConnected(true);
       setName('');
       setMessage('');
-      showToast('Doa & ucapan restu Anda berhasil disimpan!');
+      showToast('Doa & ucapan restu Anda berhasil terkirim!');
     } catch (err) {
-      console.warn('Backend API belum terhubung, menyimpan ke penyimpanan persisten lokal:', err.message);
+      console.warn('Gagal menyimpan ke Firebase Firestore, fallback ke lokal:', err.message);
       setIsBackendConnected(false);
-      // Fallback lokal persisten jika backend tidak merespons
+      // Fallback lokal persisten jika offline
       const localWish = {
         id: Date.now(),
         name: payload.name,
@@ -165,7 +137,7 @@ export default function Ucapan() {
       setTotalWishesCount((prev) => prev + 1);
       setName('');
       setMessage('');
-      showToast('Doa & ucapan restu Anda berhasil dikirimkan!');
+      showToast('Doa & ucapan restu Anda berhasil disimpan di perangkat!');
     } finally {
       setIsSubmitting(false);
     }
@@ -407,7 +379,7 @@ export default function Ucapan() {
                   {isLoading
                     ? 'Memuat...'
                     : isBackendConnected
-                    ? 'Terhubung ke Database'
+                    ? 'Terhubung ke Cloud (Live)'
                     : 'Tersimpan Aman'}
                 </span>
               </div>
