@@ -98,7 +98,7 @@ export default function App() {
   const handleSaveDate = () => {
     const title = encodeURIComponent('Pernikahan Rizal & Putri');
     const details = encodeURIComponent(
-      'Akad Nikah & Syukuran Pernikahan Rizal Pratama & Putri Anindya di Cigugur, Kuningan.'
+      'Akad Nikah & Resepsi Pernikahan Rizal Pratama & Putri Nabila Maelani di Cigugur, Kuningan.'
     );
     const location = encodeURIComponent(
       'Lingk. Manis RT.02 RW.01 Kel. Cigugur, Kec. Cigugur, Kab. Kuningan, Jawa Barat'

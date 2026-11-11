@@ -54,7 +54,7 @@ export default function Beranda({ onNavigate }) {
     // Also offer Google Calendar link
     const title = encodeURIComponent('Pernikahan Rizal & Putri');
     const details = encodeURIComponent(
-      'Akad Nikah & Syukuran Pernikahan Rizal Pratama & Putri Anindya di Cigugur, Kuningan.'
+      'Akad Nikah & Resepsi Pernikahan Rizal Pratama & Putri Nabila Maelani di Cigugur, Kuningan.'
     );
     const location = encodeURIComponent(
       'Lingk. Manis RT.02 RW.01 Kel. Cigugur, Kec. Cigugur, Kab. Kuningan, Jawa Barat'
@@ -369,9 +369,10 @@ export default function Beranda({ onNavigate }) {
             </h2>
           </div>
 
-          {/* Hari Pelaksanaan Card - Posisikan di Tengah */}
-          <div className="flex justify-center items-center w-full">
-            <div className="w-full max-w-xl p-4 sm:p-space-xl rounded-2xl bg-surface-container-lowest shadow-md flex flex-col justify-between border border-outline-variant/30 text-center">
+          {/* Hari Pelaksanaan Cards (Akad Nikah & Resepsi) */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 max-w-4xl mx-auto items-stretch">
+            {/* Card 1: Akad Nikah */}
+            <div className="w-full p-4 sm:p-space-xl rounded-2xl bg-surface-container-lowest shadow-md flex flex-col justify-between border border-outline-variant/30 text-center">
               <div>
                 <div className="inline-flex items-center justify-center gap-space-xs px-3 sm:px-space-md py-1 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-[10px] sm:text-label-sm font-semibold uppercase tracking-wider mb-space-sm sm:mb-space-md shadow-sm">
                   <span className="material-symbols-outlined text-[14px] sm:text-[16px]">
@@ -384,8 +385,8 @@ export default function Beranda({ onNavigate }) {
                   Prosesi Ijab Kabul
                 </h3>
                 <p className="font-body-md text-xs sm:text-body-md text-on-surface-variant mb-4 sm:mb-space-lg max-w-md mx-auto leading-relaxed text-center px-1">
-                  Khidmat prosesi sakral pengucapan janji setia di hadapan
-                  penghulu dan keluarga inti.
+                  Khidmat prosesi sakral pengucapan janji suci di hadapan
+                  penghulu, saksi, dan keluarga inti.
                 </p>
 
                 <div className="bg-surface-container-low/70 rounded-xl p-3 sm:p-space-md space-y-2.5 sm:space-y-3 font-body-md text-xs sm:text-body-md text-on-surface border border-outline-variant/20 max-w-md mx-auto text-left sm:text-center">
@@ -408,7 +409,52 @@ export default function Beranda({ onNavigate }) {
 
               <div className="mt-4 sm:mt-space-lg pt-3 sm:pt-space-md flex flex-col items-center gap-1.5 sm:gap-2 border-t border-outline-variant/30 text-center sm:flex-row sm:justify-between">
                 <span className="font-label-sm text-[10px] sm:text-label-sm text-outline uppercase tracking-wider">
-                  Busana: Sopan dan rapi
+                  Busana: Sopan &amp; Rapi
+                </span>
+                <span className="font-label-md text-xs sm:text-label-md font-semibold text-primary">
+                  Keluarga &amp; Kerabat
+                </span>
+              </div>
+            </div>
+
+            {/* Card 2: Resepsi Pernikahan */}
+            <div className="w-full p-4 sm:p-space-xl rounded-2xl bg-surface-container-lowest shadow-md flex flex-col justify-between border border-outline-variant/30 text-center">
+              <div>
+                <div className="inline-flex items-center justify-center gap-space-xs px-3 sm:px-space-md py-1 rounded-full bg-primary-container text-on-primary-container font-label-sm text-[10px] sm:text-label-sm font-semibold uppercase tracking-wider mb-space-sm sm:mb-space-md shadow-sm">
+                  <span className="material-symbols-outlined text-[14px] sm:text-[16px]">
+                    celebration
+                  </span>
+                  <span>Resepsi Pernikahan</span>
+                </div>
+
+                <h3 className="font-headline-md text-xl sm:text-headline-md text-on-surface mb-1 sm:mb-space-xs text-center">
+                  Walimatul Ursy &amp; Ramah Tamah
+                </h3>
+                <p className="font-body-md text-xs sm:text-body-md text-on-surface-variant mb-4 sm:mb-space-lg max-w-md mx-auto leading-relaxed text-center px-1">
+                  Ungkapan rasa syukur, santap siang penuh berkah, serta ucapan doa restu sanak kerabat.
+                </p>
+
+                <div className="bg-surface-container-low/70 rounded-xl p-3 sm:p-space-md space-y-2.5 sm:space-y-3 font-body-md text-xs sm:text-body-md text-on-surface border border-outline-variant/20 max-w-md mx-auto text-left sm:text-center">
+                  <div className="flex items-center justify-center gap-2 sm:gap-space-sm">
+                    <span className="material-symbols-outlined text-primary text-[18px] sm:text-[20px] shrink-0">
+                      schedule
+                    </span>
+                    <span className="font-semibold">11.00 – Selesai WIB</span>
+                  </div>
+                  <div className="flex items-center justify-center gap-2 sm:gap-space-sm text-center">
+                    <span className="material-symbols-outlined text-primary text-[18px] sm:text-[20px] shrink-0">
+                      location_on
+                    </span>
+                    <span className="leading-snug">
+                      Kediaman Mempelai Wanita (Lingk. Manis RT.02 RW.01, Cigugur, Kuningan)
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              <div className="mt-4 sm:mt-space-lg pt-3 sm:pt-space-md flex flex-col items-center gap-1.5 sm:gap-2 border-t border-outline-variant/30 text-center sm:flex-row sm:justify-between">
+                <span className="font-label-sm text-[10px] sm:text-label-sm text-outline uppercase tracking-wider">
+                  Busana: Bebas, Rapi &amp; Sopan
                 </span>
                 <span className="font-label-md text-xs sm:text-label-md font-semibold text-primary">
                   Semua Tamu Undangan
