@@ -135,3 +135,4 @@ export async function createFirestoreWish(wishData) {
   });
   return docRef.id;
 }
+
