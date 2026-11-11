@@ -12,23 +12,65 @@ export default function Ucapan() {
   const [isLoading, setIsLoading] = useState(true);
   const [totalWishesCount, setTotalWishesCount] = useState(0);
 
-  const [wishes, setWishes] = useState([]);
+  const [wishes, setWishes] = useState(() => {
+    // Muat data awal langsung dari localStorage agar saat refresh data tetap ada
+    if (typeof window !== 'undefined') {
+      try {
+        const saved = localStorage.getItem('wedding_wishes_storage');
+        if (saved) {
+          const parsed = JSON.parse(saved);
+          if (Array.isArray(parsed)) return parsed;
+        }
+      } catch (e) {
+        console.warn('Gagal membaca cache ucapan lokal:', e);
+      }
+    }
+    return [];
+  });
+  const [isBackendConnected, setIsBackendConnected] = useState(false);
 
-  // Ambil data ucapan dari backend database saat komponen dimuat
+  // Ambil data ucapan dari backend database saat komponen dimuat & sinkronkan
   useEffect(() => {
     let isMounted = true;
 
     getWishes()
       .then((res) => {
-        if (isMounted && res && res.data && res.data.length > 0) {
-          setWishes(res.data);
-          if (res.stats && res.stats.totalWishes) {
-            setTotalWishesCount(res.stats.totalWishes);
-          }
+        if (!isMounted) return;
+        setIsBackendConnected(true);
+        if (res && res.data) {
+          // Ambil ucapan lokal yang mungkin belum ada di backend
+          let localWishes = [];
+          try {
+            const saved = localStorage.getItem('wedding_wishes_storage');
+            if (saved) localWishes = JSON.parse(saved) || [];
+          } catch (e) {}
+
+          // Gabungkan data backend dan lokal tanpa duplikasi berdasarkan teks & nama
+          const backendNames = new Set(res.data.map((w) => `${w.name}__${w.message}`));
+          const unsyncedLocal = localWishes.filter(
+            (lw) => !backendNames.has(`${lw.name}__${lw.message}`)
+          );
+
+          const combined = [...unsyncedLocal, ...res.data];
+          setWishes(combined);
+          setTotalWishesCount(res.stats?.totalWishes ? Math.max(res.stats.totalWishes, combined.length) : combined.length);
+          localStorage.setItem('wedding_wishes_storage', JSON.stringify(combined));
         }
       })
       .catch((err) => {
-        console.warn('Backend API belum terhubung, menggunakan data lokal awal:', err.message);
+        if (!isMounted) return;
+        setIsBackendConnected(false);
+        console.info('Backend API offline, menggunakan penyimpanan persisten lokal:', err.message);
+        // Pastikan totalWishesCount sesuai dengan data lokal yang ada
+        try {
+          const saved = localStorage.getItem('wedding_wishes_storage');
+          if (saved) {
+            const parsed = JSON.parse(saved);
+            if (Array.isArray(parsed)) {
+              setTotalWishesCount(parsed.length);
+            }
+          }
+        } catch (e) {}
       })
       .finally(() => {
         if (isMounted) setIsLoading(false);
@@ -81,7 +123,14 @@ export default function Ucapan() {
     try {
       const res = await createWish(payload);
       if (res && res.data) {
-        setWishes((prev) => [res.data, ...prev]);
+        setIsBackendConnected(true);
+        setWishes((prev) => {
+          const updated = [res.data, ...prev.filter((w) => w.id !== res.data.id)];
+          try {
+            localStorage.setItem('wedding_wishes_storage', JSON.stringify(updated));
+          } catch (e) {}
+          return updated;
+        });
         if (res.stats && res.stats.totalWishes) {
           setTotalWishesCount(res.stats.totalWishes);
         } else {
@@ -92,8 +141,9 @@ export default function Ucapan() {
       setMessage('');
       showToast('Doa & ucapan restu Anda berhasil disimpan!');
     } catch (err) {
-      console.warn('Gagal simpan ke backend, beralih ke state lokal:', err.message);
-      // Fallback lokal jika backend tidak merespons
+      console.warn('Backend API belum terhubung, menyimpan ke penyimpanan persisten lokal:', err.message);
+      setIsBackendConnected(false);
+      // Fallback lokal persisten jika backend tidak merespons
       const localWish = {
         id: Date.now(),
         name: payload.name,
@@ -105,7 +155,13 @@ export default function Ucapan() {
         pax: payload.pax,
         message: payload.message,
       };
-      setWishes((prev) => [localWish, ...prev]);
+      setWishes((prev) => {
+        const updated = [localWish, ...prev];
+        try {
+          localStorage.setItem('wedding_wishes_storage', JSON.stringify(updated));
+        } catch (e) {}
+        return updated;
+      });
       setTotalWishesCount((prev) => prev + 1);
       setName('');
       setMessage('');
@@ -347,7 +403,13 @@ export default function Ucapan() {
                 <span className="material-symbols-outlined text-[16px]">
                   sync
                 </span>
-                <span>{isLoading ? 'Memuat...' : 'Terhubung ke Database'}</span>
+                <span>
+                  {isLoading
+                    ? 'Memuat...'
+                    : isBackendConnected
+                    ? 'Terhubung ke Database'
+                    : 'Tersimpan Aman'}
+                </span>
               </div>
             </div>
 

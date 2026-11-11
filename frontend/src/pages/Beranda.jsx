@@ -394,14 +394,14 @@ export default function Beranda({ onNavigate }) {
                     <span className="material-symbols-outlined text-primary text-[18px] sm:text-[20px] shrink-0">
                       schedule
                     </span>
-                    <span className="font-semibold">08.00 – 10.30 WIB</span>
+                    <span className="font-semibold">09.00 – 10.00 WIB</span>
                   </div>
                   <div className="flex items-center justify-center gap-2 sm:gap-space-sm text-center">
                     <span className="material-symbols-outlined text-primary text-[18px] sm:text-[20px] shrink-0">
                       location_on
                     </span>
                     <span className="leading-snug">
-                      Kediaman Mempelai Wanita (Lingk. Manis RT.02 RW.01, Cigugur, Kuningan)
+                      Kantor KUA Kelurahan Cigugur
                     </span>
                   </div>
                 </div>
@@ -439,7 +439,7 @@ export default function Beranda({ onNavigate }) {
                     <span className="material-symbols-outlined text-primary text-[18px] sm:text-[20px] shrink-0">
                       schedule
                     </span>
-                    <span className="font-semibold">11.00 – Selesai WIB</span>
+                    <span className="font-semibold">12.30 – Selesai WIB</span>
                   </div>
                   <div className="flex items-center justify-center gap-2 sm:gap-space-sm text-center">
                     <span className="material-symbols-outlined text-primary text-[18px] sm:text-[20px] shrink-0">
