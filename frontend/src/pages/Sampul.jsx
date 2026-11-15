@@ -195,7 +195,7 @@ export default function Sampul({
       setPinError('');
       showToast('Berhasil masuk ke Role 1 (Pembuat Undangan)!');
     } else {
-      setPinError('PIN salah! Gunakan tahun pernikahan: 2026');
+      setPinError('PIN yang Anda masukkan salah!');
     }
   };
 
@@ -506,7 +506,7 @@ export default function Sampul({
                     handleVerifyPin(e);
                   }
                 }}
-                placeholder="Masukkan PIN (Default: 2026)"
+                placeholder="Masukkan PIN Rahasia"
                 className="w-full px-3 py-2 rounded-lg bg-surface-container-low border border-outline-variant focus:border-primary outline-none text-on-surface text-sm text-center tracking-widest font-bold"
                 autoFocus
               />
