@@ -9,6 +9,38 @@ export default function Sampul({
   guestPropName = '',
   onGuestNameChange,
 }) {
+  // Role 1 = 'creator' (Pembuat Nama Tamu & Link Undangan)
+  // Role 2 = 'guest' (Penerima Undangan - Bersih, tanpa tombol buat link)
+  const [role, setRole] = useState(() => {
+    if (typeof window !== 'undefined') {
+      const urlParams = new URLSearchParams(window.location.search);
+      // Parameter khusus untuk mengaktifkan Role 1 (Pembuat Undangan)
+      if (
+        urlParams.get('role') === 'admin' ||
+        urlParams.get('role') === 'creator' ||
+        urlParams.get('admin') === 'true' ||
+        urlParams.get('pengundang') === 'true'
+      ) {
+        try {
+          localStorage.setItem('undangan_user_role', 'creator');
+        } catch {}
+        return 'creator';
+      }
+
+      // Jika membuka tautan khusus tamu (?to=... atau ?role=guest), WAJIB Role 2
+      if (urlParams.get('to') || urlParams.get('role') === 'guest') {
+        return 'guest';
+      }
+
+      // Cek apakah perangkat ini sebelumnya sudah login sebagai pembuat undangan
+      try {
+        const savedRole = localStorage.getItem('undangan_user_role');
+        if (savedRole === 'creator') return 'creator';
+      } catch {}
+    }
+    return 'guest'; // Default: Role 2 (Penerima Undangan)
+  });
+
   const [guestName, setGuestName] = useState(() => {
     if (guestPropName) return guestPropName;
     if (typeof window !== 'undefined') {
@@ -40,6 +72,9 @@ export default function Sampul({
 
   const [isOpening, setIsOpening] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isPinModalOpen, setIsPinModalOpen] = useState(false);
+  const [pinInput, setPinInput] = useState('');
+  const [pinError, setPinError] = useState('');
   const [inputGuest, setInputGuest] = useState('');
   const [toastMessage, setToastMessage] = useState('');
   const [isToastVisible, setIsToastVisible] = useState(false);
@@ -137,6 +172,33 @@ export default function Sampul({
     window.open(waUrl, '_blank', 'noopener,noreferrer');
   };
 
+  // Toggle beralih ke Role 2 (Preview sebagai Tamu)
+  const handleSwitchToGuest = (e) => {
+    if (e) e.stopPropagation();
+    setRole('guest');
+    try {
+      localStorage.setItem('undangan_user_role', 'guest');
+    } catch {}
+    showToast('Beralih ke Role 2 (Mode Penerima Undangan)');
+  };
+
+  // Verifikasi PIN untuk beralih ke Role 1 (Pembuat Undangan)
+  const handleVerifyPin = (e) => {
+    if (e) e.stopPropagation();
+    if (pinInput.trim() === '2026' || pinInput.trim().toLowerCase() === 'admin') {
+      setRole('creator');
+      try {
+        localStorage.setItem('undangan_user_role', 'creator');
+      } catch {}
+      setIsPinModalOpen(false);
+      setPinInput('');
+      setPinError('');
+      showToast('Berhasil masuk ke Role 1 (Pembuat Undangan)!');
+    } else {
+      setPinError('PIN salah! Gunakan tahun pernikahan: 2026');
+    }
+  };
+
   return (
     <main
       onClick={handleClickCover}
@@ -163,6 +225,23 @@ export default function Sampul({
           {toastMessage}
         </span>
       </div>
+
+      {/* Akses Role 1 (Discreet Lock Button di Sudut Kanan Atas) */}
+      {role !== 'creator' && (
+        <button
+          type="button"
+          onClick={(e) => {
+            e.stopPropagation();
+            setPinInput('');
+            setPinError('');
+            setIsPinModalOpen(true);
+          }}
+          className="absolute top-4 right-4 z-30 w-8 h-8 rounded-full bg-surface-container-high/30 hover:bg-surface-container-high text-on-surface-variant/30 hover:text-primary transition-all flex items-center justify-center text-xs"
+          title="Akses Pembuat Undangan (Role 1)"
+        >
+          <span className="material-symbols-outlined text-[15px]">settings</span>
+        </button>
+      )}
 
       {/* Background Ambience Glow */}
       <div className="absolute inset-0 pointer-events-none opacity-40">
@@ -230,6 +309,28 @@ export default function Sampul({
           <circle cx="110" cy="10" fill="currentColor" r="2" />
         </svg>
       </div>
+
+      {/* Role 1 Status Pill (Hanya tampil saat Role 1 Aktif) */}
+      {role === 'creator' && (
+        <div
+          onClick={(e) => e.stopPropagation()}
+          className="relative z-20 mb-3 px-3.5 py-1.5 rounded-full bg-primary-container/90 text-on-primary-container shadow-md border border-primary/30 flex items-center gap-2 text-xs font-medium"
+        >
+          <span className="material-symbols-outlined text-sm text-primary">
+            admin_panel_settings
+          </span>
+          <span>Role 1: <strong>Pembuat Undangan</strong></span>
+          <span className="w-1 h-1 rounded-full bg-primary/40"></span>
+          <button
+            type="button"
+            onClick={handleSwitchToGuest}
+            className="px-2 py-0.5 rounded-full bg-surface text-on-surface hover:bg-primary hover:text-on-primary text-[10px] font-semibold transition-all border border-outline-variant/30"
+            title="Beralih ke tampilan penerima undangan (Role 2)"
+          >
+            Lihat Sebagai Tamu (Role 2)
+          </button>
+        </div>
+      )}
 
       {/* Center Invitation Card (Buku Sampul) */}
       <div
@@ -304,20 +405,22 @@ export default function Sampul({
             *Mohon maaf apabila terdapat kesalahan dalam penulisan nama atau gelar
           </p>
 
-          {/* Tombol Tulis Nama Tamu / Buat Link */}
-          <div className="mt-3 flex justify-center">
-            <button
-              type="button"
-              onClick={handleOpenModal}
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-surface-container border border-outline-variant/40 hover:border-primary/50 text-on-surface-variant hover:text-primary text-[11px] sm:text-xs font-medium transition-all shadow-sm hover:shadow"
-              title="Tulis nama tamu yang ingin diundang & buat tautan personal"
-            >
-              <span className="material-symbols-outlined text-[15px] text-primary">
-                edit_square
-              </span>
-              <span>Tulis Nama Tamu / Buat Link</span>
-            </button>
-          </div>
+          {/* Tombol Tulis Nama Tamu / Buat Link - HANYA MUNCUL DI ROLE 1 (PEMBUAT UNDANGAN) */}
+          {role === 'creator' && (
+            <div className="mt-3 flex justify-center">
+              <button
+                type="button"
+                onClick={handleOpenModal}
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-surface-container border border-outline-variant/40 hover:border-primary/50 text-on-surface-variant hover:text-primary text-[11px] sm:text-xs font-medium transition-all shadow-sm hover:shadow"
+                title="Tulis nama tamu yang ingin diundang & buat tautan personal"
+              >
+                <span className="material-symbols-outlined text-[15px] text-primary">
+                  edit_square
+                </span>
+                <span>Tulis Nama Tamu / Buat Link</span>
+              </button>
+            </div>
+          )}
         </div>
 
         {/* Subtle Tap / Click Prompt */}
@@ -357,8 +460,75 @@ export default function Sampul({
         </div>
       </div>
 
-      {/* Modal Tulis Nama Tamu & Buat Tautan Personal */}
-      {isModalOpen && (
+      {/* Modal Masuk Role 1 (PIN) */}
+      {isPinModalOpen && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm"
+          onClick={(e) => {
+            e.stopPropagation();
+            setIsPinModalOpen(false);
+          }}
+        >
+          <div
+            className="bg-surface-container-lowest text-on-surface rounded-2xl p-5 sm:p-6 max-w-sm w-full shadow-2xl border border-outline-variant/30 text-left relative animate-in fade-in zoom-in-95 duration-200"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="flex items-center justify-between mb-3 pb-2 border-b border-outline-variant/30">
+              <div className="flex items-center gap-2">
+                <span className="material-symbols-outlined text-primary text-xl">lock</span>
+                <h3 className="font-headline-sm text-base font-bold text-on-surface">
+                  Akses Role 1 (Pengundang)
+                </h3>
+              </div>
+              <button
+                type="button"
+                onClick={() => setIsPinModalOpen(false)}
+                className="w-7 h-7 rounded-full hover:bg-surface-container flex items-center justify-center text-outline"
+              >
+                <span className="material-symbols-outlined text-lg">close</span>
+              </button>
+            </div>
+
+            <p className="font-body-sm text-xs text-on-surface-variant mb-3 leading-relaxed">
+              Masukkan PIN untuk mengaktifkan fitur pembuatan nama tamu dan tautan undangan:
+            </p>
+
+            <div className="mb-3">
+              <input
+                type="password"
+                value={pinInput}
+                onChange={(e) => {
+                  setPinInput(e.target.value);
+                  setPinError('');
+                }}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter') {
+                    handleVerifyPin(e);
+                  }
+                }}
+                placeholder="Masukkan PIN (Default: 2026)"
+                className="w-full px-3 py-2 rounded-lg bg-surface-container-low border border-outline-variant focus:border-primary outline-none text-on-surface text-sm text-center tracking-widest font-bold"
+                autoFocus
+              />
+              {pinError && (
+                <p className="text-[11px] text-error mt-1 text-center font-medium">{pinError}</p>
+              )}
+            </div>
+
+            <button
+              type="button"
+              onClick={handleVerifyPin}
+              className="w-full py-2 px-4 rounded-lg bg-primary-container text-on-primary-container font-semibold text-xs sm:text-sm hover:bg-primary hover:text-on-primary transition-all flex items-center justify-center gap-1.5 shadow-sm"
+            >
+              <span>Aktifkan Role 1</span>
+              <span className="material-symbols-outlined text-base">arrow_forward</span>
+            </button>
+          </div>
+        </div>
+      )}
+
+      {/* Modal Tulis Nama Tamu & Buat Tautan Personal (HANYA DI ROLE 1) */}
+      {role === 'creator' && isModalOpen && (
         <div
           className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm"
           onClick={(e) => {
