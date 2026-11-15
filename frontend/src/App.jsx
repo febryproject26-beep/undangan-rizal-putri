@@ -12,6 +12,29 @@ export default function App() {
   const [activeSection, setActiveSection] = useState('hero');
   const [showBackToTop, setShowBackToTop] = useState(false);
 
+  // Parameter nama tamu dari URL
+  const [guestName, setGuestName] = useState(() => {
+    if (typeof window !== 'undefined') {
+      const urlParams = new URLSearchParams(window.location.search);
+      const guestParam =
+        urlParams.get('to') ||
+        urlParams.get('tamu') ||
+        urlParams.get('nama') ||
+        urlParams.get('u') ||
+        urlParams.get('guest') ||
+        urlParams.get('kpd') ||
+        urlParams.get('kepada');
+      if (guestParam) {
+        try {
+          return decodeURIComponent(guestParam.replace(/\+/g, ' ')).trim();
+        } catch {
+          return guestParam.replace(/\+/g, ' ').trim();
+        }
+      }
+    }
+    return '';
+  });
+
   // Kunci scroll halaman ketika sampul aktif & pastikan di posisi paling atas
   useEffect(() => {
     if (isCoverOpen) {
@@ -121,7 +144,11 @@ export default function App() {
             : '-translate-y-full opacity-0 pointer-events-none'
         }`}
       >
-        <Sampul onOpenInvitation={handleOpenInvitation} />
+        <Sampul
+          guestPropName={guestName}
+          onGuestNameChange={setGuestName}
+          onOpenInvitation={handleOpenInvitation}
+        />
       </div>
 
       {/* Sticky Top Navigation (Hanya tampil setelah masuk ke undangan) */}
@@ -155,7 +182,7 @@ export default function App() {
 
         {/* Section 4: Amplop Digital, Buku Tamu & Dinding Ucapan Para Tamu */}
         <section id="section-ucapan" className="w-full">
-          <Ucapan />
+          <Ucapan defaultGuestName={guestName} />
         </section>
       </main>
 

@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { subscribeToWishes, createFirestoreWish } from '../services/firebase';
 
-export default function Ucapan() {
+export default function Ucapan({ defaultGuestName = '' }) {
   const [selectedCategory, setSelectedCategory] = useState('Keluarga');
-  const [name, setName] = useState('');
+  const [name, setName] = useState(() => defaultGuestName || '');
   const [message, setMessage] = useState('');
   const [attendance, setAttendance] = useState('hadir'); // 'hadir' | 'berhalangan'
   const [toastMessage, setToastMessage] = useState('');
@@ -11,6 +11,13 @@ export default function Ucapan() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [totalWishesCount, setTotalWishesCount] = useState(0);
+
+  // Jika nama tamu di-update dari sampul/URL, isi otomatis ke form ucapan
+  useEffect(() => {
+    if (defaultGuestName && !name) {
+      setName(defaultGuestName);
+    }
+  }, [defaultGuestName]);
 
   const [wishes, setWishes] = useState(() => {
     // Muat data awal langsung dari localStorage agar saat refresh/offline data tetap ada
